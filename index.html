@@ -16,86 +16,55 @@
             scroll-behavior: smooth;
         }
 
-        /* ===== Header יוקרתי ===== */
+        /* ===== Header ===== */
         .top-header {
             background: linear-gradient(135deg, #0b1220, #1f2a4d);
             color: white;
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .top-header::after {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            filter: blur(50px);
         }
 
         .store-title {
-            font-size: 56px;
+            font-size: 48px;
             margin: 0;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            cursor: pointer;
         }
 
-        .store-subtitle {
-            margin: 15px 0 30px 0;
-            font-size: 20px;
-            opacity: 0.9;
+        /* ===== מיכלי דפים ===== */
+        .page {
+            display: none; /* מוסתר כברירת מחדל */
+            padding: 40px 20px;
+            animation: fadeIn 0.5s ease;
         }
 
-        .header-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+        .active-page {
+            display: block; /* מוצג כשהדף פעיל */
         }
 
-        .btn {
-            background: #ffcc00;
-            color: #1a1a1a;
-            padding: 14px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            background: #ffe066;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid rgba(255,255,255,0.7);
-            color: white;
-        }
-
-        /* ===== קטגוריות ===== */
+        /* ===== כרטיסיות (קטגוריות ומוצרים) ===== */
         .section-title {
             text-align: center;
-            margin-top: 60px;
             font-size: 32px;
             color: #1f2a4d;
+            margin-bottom: 40px;
         }
 
-        .categories-container {
+        .grid-container {
             display: flex;
             justify-content: center;
             gap: 30px;
-            padding: 40px 20px;
             flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .category-card {
+        .card {
             background: white;
             width: 320px;
             border-radius: 20px;
@@ -105,226 +74,144 @@
             cursor: pointer;
         }
 
-        .category-card:hover {
+        .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
-        .category-image {
+        .card-image {
             width: 100%;
             height: 250px;
             background-size: cover;
             background-position: center;
-            transition: transform 0.6s ease;
         }
 
-        .category-card:hover .category-image {
-            transform: scale(1.1);
-        }
-
-        .category-info {
+        .card-info {
             padding: 25px;
             text-align: center;
         }
 
-        /* ===== למה כדאי לקנות אצלנו? ===== */
-        .features-section {
-            background: #fff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .features-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 40px auto 0;
-            flex-wrap: wrap;
-        }
-
-        .feature-item {
-            flex: 1;
-            min-width: 250px;
-            padding: 20px;
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .feature-item h4 {
-            font-size: 22px;
+        .card-info h3 {
+            margin: 0;
+            font-size: 24px;
             color: #1f2a4d;
-            margin: 10px 0;
         }
 
-        .feature-item p {
-            color: #666;
-            font-size: 16px;
-        }
-
-        /* ===== אודות ===== */
-        .about-section {
-            background: #f1f4f8;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
+        /* ===== כפתור חזרה ===== */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #1f2a4d;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
         }
 
         /* ===== אמצעי תשלום ===== */
         .payment-methods {
-            background: #fff;
+            background: white;
             padding: 40px 20px;
             text-align: center;
             border-top: 1px solid #ddd;
+            margin-top: 50px;
         }
 
         .payment-icons {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 25px;
             flex-wrap: wrap;
             margin-top: 20px;
         }
 
-        .payment-icons img {
-            height: 35px;
-            transition: 0.3s;
-        }
+        .payment-icons img { height: 35px; }
 
-        /* ===== כפתור חזרה למעלה ===== */
-        #backToTop {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: #1f2a4d;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-            border: none;
-        }
-
-        @media (max-width: 600px) {
-            .store-title { font-size: 38px; }
-            .category-card { width: 100%; }
-        }
+        @media (max-width: 600px) { .card { width: 100%; } }
     </style>
 </head>
 <body>
 
 <header class="top-header">
-    <div class="header-content">
-        <h1 class="store-title">Engraving4Heart</h1>
-        <p class="store-subtitle">חריטה מהלב • מתנות מעוצבות • משלוחים לכל הארץ</p>
-        <div class="header-buttons">
-            <a href="#categories" class="btn">לצפייה בקטגוריות</a>
-            <a href="https://wa.me/972507000306" class="btn btn-secondary" target="_blank">ייעוץ אישי בווטסאפ</a>
-        </div>
-    </div>
+    <h1 class="store-title" onclick="showPage('home-page')">Engraving4Heart</h1>
+    <p>הופכים רגעים למתנות בלתי נשכחות</p>
 </header>
 
-<section class="features-section">
-    <h2 class="section-title">למה לבחור בנו?</h2>
-    <div class="features-grid">
-        <div class="feature-item">
-            <span class="feature-icon">💎</span>
-            <h4>איכות ללא פשרות</h4>
-            <p>אנחנו משתמשים בחומרים הטובים ביותר ובטכנולוגיית חריטה מתקדמת שמחזיקה מעמד לאורך שנים.</p>
+<main id="home-page" class="page active-page">
+    <h2 class="section-title">בחר קטגוריה</h2>
+    <div class="grid-container">
+        <div class="card" onclick="showPage('bracelets-page')">
+            <div class="card-image" style="background-image: url('https://i.postimg.cc/85zX6pRW/image-099a9c.png');"></div>
+            <div class="card-info">
+                <h3>צמידים בחריטה</h3>
+                <p>צמידי יוקרה וגומי בעיצוב אישי</p>
+            </div>
         </div>
-        <div class="feature-item">
-            <span class="feature-icon">🎨</span>
-            <h4>עיצוב אישי וייחודי</h4>
-            <p>כל מוצר הוא יחיד במינו. אנחנו עוזרים לכם להפוך כל רעיון למתנה מרגשת עם נגיעה אישית.</p>
+        <div class="card" onclick="contactWhatsApp('מגנים לטלפון')">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1603313011101-31c726a55ad4?q=80&w=400&auto=format&fit=crop');"></div>
+            <div class="card-info">
+                <h3>מגנים לטלפון</h3>
+                <p>הגנה בסטייל אישי</p>
+            </div>
         </div>
-        <div class="feature-item">
-            <span class="feature-icon">🚀</span>
-            <h4>שירות מהיר ואדיב</h4>
-            <p>אנחנו מבינים שמתנות לפעמים דחופות. אצלנו תקבלו מענה מהיר ומשלוח עד הבית במינימום זמן.</p>
-        </div>
-    </div>
-</section>
-
-<h2 id="categories" class="section-title">הקטגוריות המובילות</h2>
-
-<div class="categories-container">
-    <div class="category-card" onclick="contactWhatsApp('צמידים בחריטה')">
-        <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=400&auto=format&fit=crop');"></div>
-        <div class="category-info">
-            <h3>צמידים בחריטה</h3>
-            <p>צמידי יוקרה עם הקדשה אישית שמרגשת כל פעם מחדש.</p>
+        <div class="card" onclick="contactWhatsApp('חולצות מעוצבות')">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=400&auto=format&fit=crop');"></div>
+            <div class="card-info">
+                <h3>חולצות מעוצבות</h3>
+                <p>הדפסה איכותית לכל אירוע</p>
+            </div>
         </div>
     </div>
+</main>
 
-    <div class="category-card" onclick="contactWhatsApp('מגנים לטלפון')">
-        <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1603313011101-31c726a55ad4?q=80&w=400&auto=format&fit=crop');"></div>
-        <div class="category-info">
-            <h3>מגנים לטלפון</h3>
-            <p>הגנה מקסימלית לנייד בעיצובים בלעדיים ואיכות הדפסה מנצחת.</p>
+<div id="bracelets-page" class="page">
+    <div class="back-btn" onclick="showPage('home-page')">→ חזרה לקטגוריות</div>
+    <h2 class="section-title">צמידים בחריטה</h2>
+    <div class="grid-container">
+        <div class="card" onclick="contactWhatsApp('צמיד גומי בהדפס')">
+            <div class="card-image" style="background-image: url('https://i.postimg.cc/85zX6pRW/image-099a9c.png');"></div>
+            <div class="card-info">
+                <h3>צמיד גומי בהדפס</h3>
+                <p>נוח, עמיד ומתאים לכל יום</p>
+            </div>
         </div>
-    </div>
-
-    <div class="category-card" onclick="contactWhatsApp('חולצות מעוצבות')">
-        <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=400&auto=format&fit=crop');"></div>
-        <div class="category-info">
-            <h3>חולצות מעוצבות</h3>
-            <p>הדפסה על חולצות לכל אירוע, ימי הולדת או מיתוג עסקי לעובדים.</p>
+        <div class="card" onclick="contactWhatsApp('צמיד מהודר בחריטה')">
+            <div class="card-image" style="background-image: url('https://i.postimg.cc/85zX6pRW/image-099a9c.png');"></div>
+            <div class="card-info">
+                <h3>צמיד מהודר בחריטה</h3>
+                <p>יוקרה עם הקדשה אישית מהלב</p>
+            </div>
         </div>
     </div>
 </div>
 
-<section id="about" class="about-section">
-    <div class="about-content">
-        <h2>הסיפור שמאחורי החריטה</h2>
-        <p>חריטה מהלב נולדה מתוך רצון להעניק לאנשים דרך להנציח רגעים. אנחנו לא רק מוכרים מוצרים, אנחנו עוזרים לכם לייצר זיכרונות.</p>
-    </div>
-</section>
-
-<div class="payment-methods">
-    <p>תשלום מאובטח ונוח ב:</p>
+<footer class="payment-methods">
+    <p>אצלנו משלמים בביטחון:</p>
     <div class="payment-icons">
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
-        <img src="https://www.bitpay.co.il/assets/img/bit-logo.png" style="border-radius: 5px;" alt="Bit">
+        <img src="https://www.bitpay.co.il/assets/img/bit-logo.png" alt="Bit">
     </div>
-</div>
-
-<button id="backToTop" onclick="scrollToTop()">↑</button>
+</footer>
 
 <script>
-    function contactWhatsApp(categoryName) {
-        const phone = "972507000306";
-        const message = `שלום! הגעתי מהאתר, אני מעוניין/ת בפרטים נוספים על קטגוריית: ${categoryName}`;
-        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
+    // פונקציה להחלפת דפים
+    function showPage(pageId) {
+        // מסתיר את כל הדפים
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active-page');
+        });
+        // מציג את הדף הנבחר
+        document.getElementById(pageId).classList.add('active-page');
+        // גלילה לראש הדף
+        window.scrollTo(0, 0);
     }
 
-    const bttButton = document.getElementById("backToTop");
-    window.onscroll = function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            bttButton.style.display = "flex";
-        } else {
-            bttButton.style.display = "none";
-        }
-    };
-
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    // פונקציית ווטסאפ
+    function contactWhatsApp(productName) {
+        const phone = "972507000306";
+        const message = `שלום! אני מעוניין בפרטים על: ${productName}`;
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
     }
 </script>
 

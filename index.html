@@ -111,12 +111,48 @@
         .card-body { padding: 25px; text-align: center; }
         .card-body h3 { margin: 0; font-size: 24px; color: var(--primary); }
 
+        /* ===== סרגל ביקורות רץ ===== */
+        .reviews-slider {
+            background: #f0f2f5;
+            padding: 60px 0;
+            margin-top: 80px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .reviews-track {
+            display: flex;
+            width: calc(350px * 20); /* התאמה ל-10 ביקורות כפול 2 לשם רציפות */
+            animation: scrollReviews 40s linear infinite;
+        }
+
+        .review-card {
+            width: 320px;
+            background: white;
+            margin: 0 15px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+        .stars { color: var(--accent); margin-bottom: 10px; font-size: 18px; }
+        .review-text { font-style: italic; margin-bottom: 15px; font-size: 15px; }
+        .review-author { font-weight: bold; color: var(--primary); }
+
+        @keyframes scrollReviews {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-350px * 10)); }
+        }
+
+        .reviews-slider:hover .reviews-track { animation-play-state: paused; }
+
         /* ===== תשלום ===== */
-        .payment-methods { background: #f1f1f1; padding: 50px 20px; text-align: center; border-top: 1px solid #ddd; margin-top: 80px; }
+        .payment-methods { background: #f1f1f1; padding: 50px 20px; text-align: center; border-top: 1px solid #ddd; margin-top: 0; }
         .payment-icons { display: flex; justify-content: center; align-items: center; gap: 25px; flex-wrap: wrap; margin-top: 25px; }
         .payment-icons img { height: 35px; }
 
-        /* ===== כפתורים צפים (וואטסאפ וחזרה למעלה) ===== */
+        /* ===== כפתורים צפים ===== */
         .whatsapp-float {
             position: fixed; bottom: 30px; left: 30px;
             background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%;
@@ -132,7 +168,6 @@
             font-size: 20px; border: none; cursor: pointer; z-index: 2000;
             box-shadow: var(--shadow); transition: 0.3s;
         }
-        #backToTop:hover { background: var(--accent); color: var(--primary); }
 
         /* אנימציות */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -209,6 +244,72 @@
     </div>
 </main>
 
+<section class="reviews-slider reveal">
+    <h2 class="section-title" style="margin-top: 0; margin-bottom: 40px;">מה הלקוחות מספרים</h2>
+    <div class="reviews-track">
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"החריטה יצאה מושלמת! האיכות של הצמיד פשוט ברמה אחרת."</p>
+            <p class="review-author">- מיכל כהן</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"שירות מהיר ואדיב, המגן לטלפון הגיע תוך יומיים ונראה מדהים."</p>
+            <p class="review-author">- רועי לוי</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"הזמנתי חולצה בעיצוב אישי וההדפסה פשוט לא יורדת בכביסה. מומלץ!"</p>
+            <p class="review-author">- עדי מזרחי</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"מתנה מרגשת בטירוף, החריטה מדויקת ונקייה מאוד."</p>
+            <p class="review-author">- דניאל אברהם</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"אין על השירות שלהם בוואטסאפ, עזרו לי לבחור את העיצוב הכי מתאים."</p>
+            <p class="review-author">- ספיר שלום</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"המתנה הכי יפה שקניתי לאשתי. היא לא מורידה את הצמיד."</p>
+            <p class="review-author">- יניב גבאי</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"פשוט חוויית קנייה מעולה. הכל הגיע ארוז יפה ויוקרתי."</p>
+            <p class="review-author">- הילה פרץ</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"רמה גבוהה מאוד של ביצוע. רואים שזו עבודה מהלב."</p>
+            <p class="review-author">- איתי דהן</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"ממליצה בחום לכל מי שרוצה מתנה עם ערך מוסף."</p>
+            <p class="review-author">- נועה ברק</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"הדברים הכי יפים שראיתי, החריטה פשוט אומנות."</p>
+            <p class="review-author">- יוסי מלכה</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"החריטה יצאה מושלמת! האיכות של הצמיד פשוט ברמה אחרת."</p>
+            <p class="review-author">- מיכל כהן</p>
+        </div>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"שירות מהיר ואדיב, המגן לטלפון הגיע תוך יומיים."</p>
+            <p class="review-author">- רועי לוי</p>
+        </div>
+    </div>
+</section>
+
 <div class="payment-methods reveal">
     <p>תשלום מאובטח ב:</p>
     <div class="payment-icons">
@@ -225,16 +326,13 @@
     const btt = document.getElementById("backToTop");
 
     window.onscroll = function() {
-        // ניהול Navbar
         const nav = document.getElementById('navbar');
         if (window.scrollY > 100) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
         
-        // הצגת כפתור "חזרה למעלה"
         if (window.scrollY > 400) btt.style.display = "flex";
         else btt.style.display = "none";
 
-        // אנימציית חשיפה
         const reveals = document.querySelectorAll(".reveal");
         reveals.forEach(reveal => {
             const windowHeight = window.innerHeight;
@@ -243,9 +341,7 @@
         });
     };
 
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
     function contactWhatsApp(name) {
         const phone = "972507000306";

@@ -79,7 +79,7 @@
             color: white;
         }
 
-        /* ===== למה לקנות אצלנו ===== */
+        /* ===== למה לקנות אצלנו - קטע שיווקי ===== */
         .why-us {
             background: white;
             padding: 60px 20px;
@@ -102,12 +102,24 @@
             border-radius: 15px;
             background: #fcfcfc;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
         .feature-icon {
             font-size: 40px;
             margin-bottom: 20px;
             display: block;
+        }
+
+        .feature-card h3 {
+            color: #1f2a4d;
+            margin-bottom: 10px;
         }
 
         /* ===== קטגוריות ===== */
@@ -158,6 +170,12 @@
             text-align: center;
         }
 
+        .category-info h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #1f2a4d;
+        }
+
         /* ===== אמצעי תשלום ===== */
         .payment-methods {
             background: #f1f1f1;
@@ -177,11 +195,12 @@
 
         .payment-icons img {
             height: 35px;
+            transition: 0.3s;
         }
 
-        .bit-style {
-            height: 50px !important;
-            border-radius: 10px;
+        .bit-logo-img {
+            height: 45px !important; /* לוגו ביט קצת יותר בולט */
+            border-radius: 8px;
         }
 
         /* כפתור חזרה למעלה */
@@ -216,7 +235,7 @@
         <p class="store-subtitle">הופכים רגעים למתנות בלתי נשכחות</p>
         <div class="header-buttons">
             <a href="#categories" class="btn">לצפייה בקטגוריות</a>
-            <a href="https://wa.me/972507000306" class="btn btn-secondary" target="_blank">שלחו הודעה ב-WhatsApp</a>
+            <a href="https://wa.me/972507000306" class="btn btn-secondary" target="_blank">שלחו לנו הודעה</a>
         </div>
     </div>
 </header>
@@ -227,17 +246,17 @@
         <div class="feature-card">
             <span class="feature-icon">🎁</span>
             <h3>מתנה עם נשמה</h3>
-            <p>כל חריטה והדפסה נעשית עם המון אהבה ותשומת לב לפרטים הקטנים ביותר.</p>
+            <p>אנחנו לא סתם חנות, אנחנו סטודיו ליצירה. כל חריטה והדפסה נעשית עם המון אהבה ותשומת לב לפרטים הקטנים.</p>
         </div>
         <div class="feature-card">
             <span class="feature-icon">🏆</span>
-            <h3>איכות ללא פשרות</h3>
-            <p>שימוש בחומרים העמידים ביותר למזכרת שתחזיק מעמד שנים קדימה.</p>
+            <h3>איכות פרימיום</h3>
+            <p>המוצרים שלנו נבחרים בקפידה כדי להבטיח עמידות לאורך שנים. חריטה שלא דוהה והדפסה שנשארת חדה.</p>
         </div>
         <div class="feature-card">
             <span class="feature-icon">🚚</span>
-            <h3>שירות אישי</h3>
-            <p>מענה מהיר בווטסאפ, ייעוץ בבחירת המתנה ומשלוחים לכל רחבי הארץ.</p>
+            <h3>שירות מהלב</h3>
+            <p>ייעוץ אישי לכל לקוח בבחירת המתנה, משלוחים מהירים עד הבית וחיוך בכל הזמנה.</p>
         </div>
     </div>
 </section>
@@ -246,10 +265,10 @@
 
 <div class="categories-container">
     <div class="category-card" onclick="contactWhatsApp('צמידים בחריטה')">
-        <div class="category-image" style="background-image: url('https://i.postimg.cc/85zX6pRW/image-099a9c.png');"></div>
+        <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=400&auto=format&fit=crop');"></div>
         <div class="category-info">
             <h3>צמידים בחריטה</h3>
-            <p>צמידי יוקרה וגומי בהתאמה אישית</p>
+            <p>אלגנטיות ורגש בכל צמיד.</p>
         </div>
     </div>
 
@@ -257,7 +276,7 @@
         <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1603313011101-31c726a55ad4?q=80&w=400&auto=format&fit=crop');"></div>
         <div class="category-info">
             <h3>מגנים לטלפון</h3>
-            <p>הגנה חזקה בעיצוב בלעדי</p>
+            <p>הסטייל שלכם, ההגנה שלנו.</p>
         </div>
     </div>
 
@@ -265,36 +284,43 @@
         <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=400&auto=format&fit=crop');"></div>
         <div class="category-info">
             <h3>חולצות מעוצבות</h3>
-            <p>הדפסה איכותית לכל אירוע</p>
+            <p>ללבוש את היצירתיות שלכם.</p>
         </div>
     </div>
 </div>
 
 <div class="payment-methods">
-    <p>תשלום מאובטח ב:</p>
+    <p>אצלנו משלמים בביטחון ובנוחות:</p>
     <div class="payment-icons">
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa">
         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
-        <img src="https://i.postimg.cc/mD8zMzkM/image-098f15.png" class="bit-style" alt="Bit">
+        <img src="https://www.bitpay.co.il/assets/img/bit-logo.png" class="bit-logo-img" alt="Bit">
     </div>
 </div>
 
 <button id="backToTop" onclick="scrollToTop()">↑</button>
 
 <script>
-    function contactWhatsApp(name) {
+    function contactWhatsApp(categoryName) {
         const phone = "972507000306";
-        const msg = `שלום! הגעתי מהאתר, אני מעוניין בפרטים על: ${name}`;
-        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+        const message = `שלום! הגעתי מהאתר, אני מעוניין/ת בפרטים על: ${categoryName}`;
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
     }
 
-    const btt = document.getElementById("backToTop");
+    const bttButton = document.getElementById("backToTop");
     window.onscroll = function() {
-        if (window.scrollY > 300) btt.style.display = "flex";
-        else btt.style.display = "none";
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            bttButton.style.display = "flex";
+        } else {
+            bttButton.style.display = "none";
+        }
     };
-    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 </script>
 
 </body>

@@ -10,7 +10,7 @@
         :root {
             --primary: #1f2a4d;
             --accent: #ffcc00;
-            --glass: rgba(255, 255, 255, 0.8);
+            --glass: rgba(255, 255, 255, 0.9);
             --shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
@@ -21,9 +21,10 @@
             padding: 0;
             color: #333;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* ===== Navbar מודרני ===== */
+        /* ===== Navbar יוקרתי ===== */
         .nav {
             position: fixed;
             top: 0; width: 100%; z-index: 1000;
@@ -31,16 +32,15 @@
             backdrop-filter: blur(10px);
             padding: 15px 0;
             transition: 0.3s;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .nav.scrolled { background: white; box-shadow: var(--shadow); }
+        .nav.scrolled { background: white; box-shadow: var(--shadow); border-bottom: 1px solid #eee; }
         .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         .logo { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); font-weight: bold; }
 
         /* ===== Hero Section מרשים ===== */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(11, 18, 32, 0.7), rgba(31, 42, 77, 0.7)), 
+            height: 80vh;
+            background: linear-gradient(rgba(11, 18, 32, 0.6), rgba(31, 42, 77, 0.6)), 
                         url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -50,81 +50,56 @@
             align-items: center;
             text-align: center;
             color: white;
-            padding: 0 20px;
         }
 
-        .hero h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(40px, 8vw, 80px); 
-            margin: 0; 
-            animation: fadeInUp 1s ease;
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 8vw, 70px); margin: 0; animation: fadeInUp 1s ease; }
+        .hero p { font-size: 22px; margin-top: 15px; opacity: 0.9; animation: fadeInUp 1.2s ease; }
+
+        /* ===== למה לקנות אצלנו (החזרתי) ===== */
+        .why-us { padding: 80px 20px; background: white; text-align: center; }
+        .features-grid { display: flex; justify-content: center; gap: 30px; max-width: 1100px; margin: 40px auto 0; flex-wrap: wrap; }
+        .feature-card { 
+            flex: 1; min-width: 250px; padding: 40px 30px; border-radius: 20px; 
+            background: #fcfcfc; box-shadow: var(--shadow); transition: 0.3s;
         }
+        .feature-card:hover { transform: translateY(-10px); background: white; }
+        .feature-icon { font-size: 45px; margin-bottom: 20px; display: block; }
 
-        .hero p { font-size: 22px; margin-top: 20px; opacity: 0.9; animation: fadeInUp 1.2s ease; }
-
-        /* ===== כרטיסיות עם אפקט זכוכית ===== */
-        .section-title {
-            text-align: center; font-family: 'Playfair Display', serif;
-            font-size: 42px; margin: 80px 0 40px; color: var(--primary);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto 100px;
-            padding: 0 20px;
-        }
-
+        /* ===== קטגוריות ===== */
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 42px; margin: 60px 0; color: var(--primary); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
         .card {
-            background: var(--glass);
-            border-radius: 30px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.3);
-            box-shadow: var(--shadow);
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            position: relative;
+            background: white; border-radius: 25px; overflow: hidden; box-shadow: var(--shadow);
+            transition: 0.4s ease; cursor: pointer; position: relative;
         }
-
-        .card:hover { transform: translateY(-15px) scale(1.02); }
-
-        .card-img {
-            width: 100%; height: 350px;
-            background-size: cover; background-position: center;
-            transition: 0.5s;
-        }
+        .card:hover { transform: translateY(-15px); }
+        .card-img { width: 100%; height: 300px; background-size: cover; background-position: center; transition: 0.6s; }
         .card:hover .card-img { transform: scale(1.1); }
+        .card-body { padding: 25px; text-align: center; }
+        .card-body h3 { margin: 0; font-size: 24px; color: var(--primary); }
 
-        .card-body { padding: 30px; text-align: center; background: white; }
-        .card-body h3 { margin: 0; font-size: 26px; color: var(--primary); }
+        /* ===== תשלום (החזרתי) ===== */
+        .payment-methods { background: #f1f1f1; padding: 50px 20px; text-align: center; border-top: 1px solid #ddd; margin-top: 80px; }
+        .payment-icons { display: flex; justify-content: center; align-items: center; gap: 25px; flex-wrap: wrap; margin-top: 25px; }
+        .payment-icons img { height: 35px; }
 
         /* ===== כפתור וואטסאפ צף ===== */
         .whatsapp-float {
-            position: fixed; bottom: 40px; left: 40px;
-            background: #25d366; color: white;
-            width: 70px; height: 70px; border-radius: 50%;
+            position: fixed; bottom: 30px; left: 30px;
+            background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
-            font-size: 35px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            z-index: 2000; text-decoration: none;
-            transition: 0.3s;
+            font-size: 30px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 2000; text-decoration: none; transition: 0.3s;
         }
         .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
 
-        /* ===== אנימציות ===== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .reveal { opacity: 0; transform: translateY(50px); transition: 1s all ease; }
+        /* אנימציות */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 45px; }
-            .whatsapp-float { width: 60px; height: 60px; bottom: 20px; left: 20px; }
-        }
+        @media (max-width: 768px) { .hero h1 { font-size: 42px; } .grid { gap: 20px; } }
     </style>
 </head>
 <body>
@@ -132,58 +107,86 @@
 <nav class="nav" id="navbar">
     <div class="nav-content">
         <div class="logo">Engraving4Heart</div>
-        <a href="https://wa.me/972507000306" class="btn-mini" style="text-decoration:none; color:var(--primary); font-weight:bold;">דברו איתנו</a>
+        <a href="https://wa.me/972507000306" style="text-decoration:none; color:var(--primary); font-weight:bold; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px;">צור קשר</a>
     </div>
 </nav>
 
 <header class="hero">
-    <h1>חריטה מהלב</h1>
-    <p>הופכים זיכרונות למתנות יוקרה בעיצוב אישי</p>
-    <a href="#shop" class="btn" style="background: var(--accent); color:#1a1a1a; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight:bold; margin-top: 30px;">התחילו לעצב</a>
+    <h1>Engraving4Heart</h1>
+    <p>הופכים רגעים למתנות בלתי נשכחות</p>
+    <a href="#shop" style="background: var(--accent); color:#1a1a1a; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight:bold; margin-top: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">לצפייה בקטלוג</a>
 </header>
+
+<section class="why-us reveal">
+    <h2 class="section-title" style="margin-top:0;">למה לבחור בנו?</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <span class="feature-icon">🎁</span>
+            <h3>מתנה עם נשמה</h3>
+            <p>אנחנו לא סתם חנות, אנחנו סטודיו ליצירה. כל חריטה נעשית עם המון אהבה.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🏆</span>
+            <h3>איכות פרימיום</h3>
+            <p>שימוש בחומרים העמידים ביותר למזכרת שתחזיק מעמד שנים קדימה.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🚚</span>
+            <h3>שירות מהלב</h3>
+            <p>מענה מהיר בווטסאפ, ייעוץ אישי ומשלוחים לכל רחבי הארץ.</p>
+        </div>
+    </div>
+</section>
 
 <main id="shop">
     <h2 class="section-title reveal">הקולקציות שלנו</h2>
     
     <div class="grid">
         <div class="card reveal" onclick="contactWhatsApp('צמידים בחריטה')">
-            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=600');"></div>
+            <div class="card-img" style="background-image: url('https://i.postimg.cc/9FmKqH9m/image-138f07.png');"></div>
             <div class="card-body">
                 <h3>צמידים בחריטה</h3>
-                <p>מגע אישי בזהב וכסף</p>
+                <p>אלגנטיות ורגש בכל צמיד</p>
             </div>
         </div>
 
         <div class="card reveal" onclick="contactWhatsApp('מגנים לטלפון')">
             <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1603313011101-31c726a55ad4?q=80&w=600');"></div>
             <div class="card-body">
-                <h3>מגנים בעיצוב אישי</h3>
-                <p>הגנה בסטייל שלך</p>
+                <h3>מגנים לטלפון</h3>
+                <p>הסטייל שלכם, ההגנה שלנו</p>
             </div>
         </div>
 
         <div class="card reveal" onclick="contactWhatsApp('חולצות מעוצבות')">
             <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600');"></div>
             <div class="card-body">
-                <h3>חולצות מודפסות</h3>
-                <p>המסר שלך על הבגד</p>
+                <h3>חולצות מעוצבות</h3>
+                <p>ללבוש את היצירתיות שלכם</p>
             </div>
         </div>
     </div>
 </main>
 
+<div class="payment-methods reveal">
+    <p>אצלנו משלמים בביטחון ובנוחות:</p>
+    <div class="payment-icons">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+    </div>
+</div>
+
 <a href="https://wa.me/972507000306" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp">💬</i>
+    <span>💬</span>
 </a>
 
 <script>
-    // שינוי צבע תפריט בגלילה
     window.onscroll = function() {
         const nav = document.getElementById('navbar');
         if (window.scrollY > 100) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
         
-        // אנימציית חשיפה
         const reveals = document.querySelectorAll(".reveal");
         reveals.forEach(reveal => {
             const windowHeight = window.innerHeight;
@@ -194,7 +197,7 @@
 
     function contactWhatsApp(name) {
         const phone = "972507000306";
-        const msg = `היי, ראיתי באתר את קולקציית ${name}, אשמח לפרטים!`;
+        const msg = `שלום! הגעתי מהאתר, אני מעוניין/ת בפרטים על: ${name}`;
         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 </script>

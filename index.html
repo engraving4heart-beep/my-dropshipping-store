@@ -10,18 +10,83 @@
             margin: 0;
             padding: 0;
         }
-        header {
-            background: #2563eb;
+
+        /* ===== Header יוקרתי ===== */
+        .top-header {
+            background: linear-gradient(135deg, #0b1220, #1f2a4d);
             color: white;
-            padding: 20px;
+            padding: 50px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
+        .top-header::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            filter: blur(20px);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .store-title {
+            font-size: 48px;
+            letter-spacing: 3px;
+            margin: 0;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        .store-subtitle {
+            margin: 10px 0 20px 0;
+            font-size: 18px;
+            opacity: 0.85;
+        }
+
+        .header-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: #ffcc00;
+            color: #1a1a1a;
+            padding: 12px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            transition: 0.2s;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.7);
+            color: white;
+        }
+
+        /* ===== Products ===== */
         .products {
             display: flex;
             justify-content: center;
             gap: 20px;
             padding: 20px;
         }
+
         .product {
             background: white;
             width: 200px;
@@ -30,10 +95,12 @@
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
         .product img {
             width: 100%;
             border-radius: 5px;
         }
+
         button {
             background: #2563eb;
             color: white;
@@ -47,12 +114,18 @@
 </head>
 <body>
 
-<header>
-    <h1>Engraving4Heart</h1>
-    <p>משלוח מהיר | תשלום מאובטח</p>
+<header class="top-header">
+    <div class="header-content">
+        <h1 class="store-title">Engraving4Heart</h1>
+        <p class="store-subtitle">מוצרים חכמים במחירים מנצחים • משלוח מהיר • תשלום מאובטח</p>
+        <div class="header-buttons">
+            <a href="#products" class="btn">לצפייה במוצרים</a>
+            <a href="#contact" class="btn btn-secondary">צור קשר</a>
+        </div>
+    </div>
 </header>
 
-<div class="products">
+<div id="products" class="products">
     <div class="product">
         <img src="https://via.placeholder.com/200">
         <h3>שעון חכם</h3>

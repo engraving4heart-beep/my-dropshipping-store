@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engraving4Heart | חריטה מהלב</title>
     <style>
-        /* הגדרות כלליות */
+        /* הגדרות בסיסיות */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f9f9f9;
             margin: 0;
             padding: 0;
             color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* גלילה חלקה */
         }
 
         /* ===== Header יוקרתי ===== */
@@ -36,14 +38,8 @@
             filter: blur(50px);
         }
 
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
         .store-title {
             font-size: 56px;
-            letter-spacing: 2px;
             margin: 0;
             text-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
@@ -86,7 +82,7 @@
         /* ===== קטגוריות ===== */
         .section-title {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             font-size: 32px;
             color: #1f2a4d;
         }
@@ -107,8 +103,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             transition: all 0.4s ease;
             cursor: pointer;
-            text-decoration: none;
-            color: inherit;
         }
 
         .category-card:hover {
@@ -135,20 +129,19 @@
 
         .category-info h3 {
             margin: 0;
-            font-size: 26px;
+            font-size: 24px;
             color: #1f2a4d;
         }
 
         .category-info p {
-            margin: 10px 0 0;
+            margin-top: 10px;
             color: #666;
             font-size: 16px;
-            line-height: 1.5;
         }
 
-        /* ===== About section ===== */
+        /* ===== אודות ===== */
         .about-section {
-            background: #fff;
+            background: white;
             padding: 80px 20px;
             text-align: center;
             border-top: 1px solid #eee;
@@ -159,23 +152,73 @@
             margin: 0 auto;
         }
 
-        .about-content h2 {
-            color: #1f2a4d;
-            font-size: 30px;
-            margin-bottom: 25px;
+        /* ===== אמצעי תשלום ===== */
+        .payment-methods {
+            background: #f1f1f1;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
         }
 
-        .about-content p {
+        .payment-methods p {
+            margin-bottom: 20px;
+            font-weight: bold;
             color: #555;
             font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 15px;
         }
 
-        /* התאמה לניידים */
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .payment-icons img {
+            height: 35px;
+            filter: grayscale(30%);
+            transition: 0.3s;
+        }
+
+        .payment-icons img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        /* ===== כפתור חזרה למעלה ===== */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #1f2a4d;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none; /* מוסתר בהתחלה */
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: 0.3s;
+            font-size: 24px;
+            border: none;
+        }
+
+        #backToTop:hover {
+            background: #ffcc00;
+            color: #1a1a1a;
+            transform: scale(1.1);
+        }
+
+        /* התאמה לנייד */
         @media (max-width: 600px) {
-            .store-title { font-size: 36px; }
+            .store-title { font-size: 38px; }
             .category-card { width: 100%; }
+            .payment-icons img { height: 25px; }
+            #backToTop { bottom: 20px; left: 20px; width: 45px; height: 45px; }
         }
     </style>
 </head>
@@ -192,7 +235,7 @@
     </div>
 </header>
 
-<h2 id="categories" class="section-title">הקטגוריות שלנו</h2>
+<h2 id="categories" class="section-title">מה תרצו לעצב היום?</h2>
 
 <div class="categories-container">
     
@@ -200,7 +243,7 @@
         <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=400&auto=format&fit=crop');"></div>
         <div class="category-info">
             <h3>צמידים בחריטה</h3>
-            <p>צמידים איכותיים עם חריטה אישית שתשאר לעד. מתנה מושלמת למי שאוהבים.</p>
+            <p>צמידי יוקרה עם הקדשה אישית שמרגשת כל פעם מחדש.</p>
         </div>
     </div>
 
@@ -208,7 +251,7 @@
         <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1603313011101-31c726a55ad4?q=80&w=400&auto=format&fit=crop');"></div>
         <div class="category-info">
             <h3>מגנים לטלפון</h3>
-            <p>מגנים חזקים בעיצוב אישי, הדפסת תמונות או שמות לכל סוגי המכשירים.</p>
+            <p>הגנה מקסימלית לנייד בעיצובים בלעדיים ואיכות הדפסה מנצחת.</p>
         </div>
     </div>
 
@@ -216,7 +259,7 @@
         <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=400&auto=format&fit=crop');"></div>
         <div class="category-info">
             <h3>חולצות מעוצבות</h3>
-            <p>חולצות איכותיות עם הדפסים ייחודיים, רקמה או מיתוג לעסקים ולאירועים.</p>
+            <p>הדפסה על חולצות לכל אירוע, ימי הולדת או מיתוג עסקי לעובדים.</p>
         </div>
     </div>
 
@@ -225,18 +268,45 @@
 <section id="about" class="about-section">
     <div class="about-content">
         <h2>קצת עלינו</h2>
-        <p>חריטה מהלב היא חנות שהוקמה בזכות האהבה שלנו לתחום, אצלנו תוכלו למצוא מגוון מתנות מיוחדות ושימושיות.</p>
-        <p>אנו מתמחים בהדפסות על כובעים, רקמה על מצעים, חלוקי רחצה ומתנות בעיצוב אישי לכל אירוע - ימי הולדת, גיוס, או מוצרי פרסום לעסקים.</p>
-        <p><strong>כל מה שנשאר זה ליצור איתנו קשר ואנחנו נמצא את המתנה המושלמת עבורכם.</strong></p>
+        <p>חריטה מהלב היא חנות שהוקמה בזכות האהבה שלנו לתחום העיצוב וההקדשה האישית. אצלנו תמצאו מגוון מתנות מיוחדות ושימושיות.</p>
+        <p>אנו מתמחים בחריטה על מגוון מוצרים, רקמה איכותית והדפסות על טקסטיל. כל מוצר אצלנו נעשה בתשומת לב מרבית כדי להבטיח לכם את המתנה המושלמת.</p>
     </div>
 </section>
 
+<div class="payment-methods">
+    <p>אצלנו ניתן לשלם באמצעות:</p>
+    <div class="payment-icons">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+        <img src="https://www.bitpay.co.il/assets/img/bit-logo.png" alt="Bit" onerror="this.src='https://via.placeholder.com/80x40?text=BIT+LOGO'">
+    </div>
+</div>
+
+<button id="backToTop" onclick="scrollToTop()">↑</button>
+
 <script>
+    // פונקציית ווטסאפ
     function contactWhatsApp(categoryName) {
         const phone = "972507000306";
-        const message = `שלום! הגעתי מהאתר, אני מעוניין/ת בפרטים נוספים על: ${categoryName}`;
+        const message = `שלום! הגעתי מהאתר, אני מעוניין/ת בפרטים נוספים על קטגוריית: ${categoryName}`;
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
+    }
+
+    // ניהול כפתור חזרה למעלה
+    const bttButton = document.getElementById("backToTop");
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            bttButton.style.display = "flex";
+        } else {
+            bttButton.style.display = "none";
+        }
+    };
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
 

@@ -13,7 +13,7 @@
             padding: 0;
             color: #333;
             line-height: 1.6;
-            scroll-behavior: smooth; /* גלילה חלקה */
+            scroll-behavior: smooth;
         }
 
         /* ===== Header יוקרתי ===== */
@@ -127,24 +127,50 @@
             text-align: center;
         }
 
-        .category-info h3 {
-            margin: 0;
-            font-size: 24px;
-            color: #1f2a4d;
+        /* ===== למה כדאי לקנות אצלנו? ===== */
+        .features-section {
+            background: #fff;
+            padding: 60px 20px;
+            text-align: center;
         }
 
-        .category-info p {
-            margin-top: 10px;
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-item h4 {
+            font-size: 22px;
+            color: #1f2a4d;
+            margin: 10px 0;
+        }
+
+        .feature-item p {
             color: #666;
             font-size: 16px;
         }
 
         /* ===== אודות ===== */
         .about-section {
-            background: white;
+            background: #f1f4f8;
             padding: 80px 20px;
             text-align: center;
-            border-top: 1px solid #eee;
         }
 
         .about-content {
@@ -154,17 +180,10 @@
 
         /* ===== אמצעי תשלום ===== */
         .payment-methods {
-            background: #f1f1f1;
+            background: #fff;
             padding: 40px 20px;
             text-align: center;
             border-top: 1px solid #ddd;
-        }
-
-        .payment-methods p {
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #555;
-            font-size: 18px;
         }
 
         .payment-icons {
@@ -173,17 +192,12 @@
             align-items: center;
             gap: 30px;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .payment-icons img {
             height: 35px;
-            filter: grayscale(30%);
             transition: 0.3s;
-        }
-
-        .payment-icons img:hover {
-            filter: grayscale(0%);
-            transform: scale(1.1);
         }
 
         /* ===== כפתור חזרה למעלה ===== */
@@ -196,29 +210,18 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            display: none; /* מוסתר בהתחלה */
+            display: none;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             z-index: 1000;
-            transition: 0.3s;
-            font-size: 24px;
             border: none;
         }
 
-        #backToTop:hover {
-            background: #ffcc00;
-            color: #1a1a1a;
-            transform: scale(1.1);
-        }
-
-        /* התאמה לנייד */
         @media (max-width: 600px) {
             .store-title { font-size: 38px; }
             .category-card { width: 100%; }
-            .payment-icons img { height: 25px; }
-            #backToTop { bottom: 20px; left: 20px; width: 45px; height: 45px; }
         }
     </style>
 </head>
@@ -235,10 +238,30 @@
     </div>
 </header>
 
-<h2 id="categories" class="section-title">מה תרצו לעצב היום?</h2>
+<section class="features-section">
+    <h2 class="section-title">למה לבחור בנו?</h2>
+    <div class="features-grid">
+        <div class="feature-item">
+            <span class="feature-icon">💎</span>
+            <h4>איכות ללא פשרות</h4>
+            <p>אנחנו משתמשים בחומרים הטובים ביותר ובטכנולוגיית חריטה מתקדמת שמחזיקה מעמד לאורך שנים.</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🎨</span>
+            <h4>עיצוב אישי וייחודי</h4>
+            <p>כל מוצר הוא יחיד במינו. אנחנו עוזרים לכם להפוך כל רעיון למתנה מרגשת עם נגיעה אישית.</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🚀</span>
+            <h4>שירות מהיר ואדיב</h4>
+            <p>אנחנו מבינים שמתנות לפעמים דחופות. אצלנו תקבלו מענה מהיר ומשלוח עד הבית במינימום זמן.</p>
+        </div>
+    </div>
+</section>
+
+<h2 id="categories" class="section-title">הקטגוריות המובילות</h2>
 
 <div class="categories-container">
-    
     <div class="category-card" onclick="contactWhatsApp('צמידים בחריטה')">
         <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=400&auto=format&fit=crop');"></div>
         <div class="category-info">
@@ -262,31 +285,28 @@
             <p>הדפסה על חולצות לכל אירוע, ימי הולדת או מיתוג עסקי לעובדים.</p>
         </div>
     </div>
-
 </div>
 
 <section id="about" class="about-section">
     <div class="about-content">
-        <h2>קצת עלינו</h2>
-        <p>חריטה מהלב היא חנות שהוקמה בזכות האהבה שלנו לתחום העיצוב וההקדשה האישית. אצלנו תמצאו מגוון מתנות מיוחדות ושימושיות.</p>
-        <p>אנו מתמחים בחריטה על מגוון מוצרים, רקמה איכותית והדפסות על טקסטיל. כל מוצר אצלנו נעשה בתשומת לב מרבית כדי להבטיח לכם את המתנה המושלמת.</p>
+        <h2>הסיפור שמאחורי החריטה</h2>
+        <p>חריטה מהלב נולדה מתוך רצון להעניק לאנשים דרך להנציח רגעים. אנחנו לא רק מוכרים מוצרים, אנחנו עוזרים לכם לייצר זיכרונות.</p>
     </div>
 </section>
 
 <div class="payment-methods">
-    <p>אצלנו ניתן לשלם באמצעות:</p>
+    <p>תשלום מאובטח ונוח ב:</p>
     <div class="payment-icons">
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa">
         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
-        <img src="https://www.bitpay.co.il/assets/img/bit-logo.png" alt="Bit" onerror="this.src='https://via.placeholder.com/80x40?text=BIT+LOGO'">
+        <img src="https://www.bitpay.co.il/assets/img/bit-logo.png" style="border-radius: 5px;" alt="Bit">
     </div>
 </div>
 
 <button id="backToTop" onclick="scrollToTop()">↑</button>
 
 <script>
-    // פונקציית ווטסאפ
     function contactWhatsApp(categoryName) {
         const phone = "972507000306";
         const message = `שלום! הגעתי מהאתר, אני מעוניין/ת בפרטים נוספים על קטגוריית: ${categoryName}`;
@@ -294,9 +314,7 @@
         window.open(url, '_blank');
     }
 
-    // ניהול כפתור חזרה למעלה
     const bttButton = document.getElementById("backToTop");
-
     window.onscroll = function() {
         if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
             bttButton.style.display = "flex";

@@ -50,18 +50,11 @@
         .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 48px; margin: 80px 0 50px; color: var(--primary); position: relative; }
         .section-title::after { content: ""; display: block; width: 60px; height: 3px; background: var(--accent); margin: 15px auto; border-radius: 2px; }
 
-        /* ===== למה לבחור בנו ===== */
-        .why-us { padding: 100px 20px; background: white; text-align: center; }
-        .features-grid { display: flex; justify-content: center; gap: 40px; max-width: 1200px; margin: 60px auto 0; flex-wrap: wrap; }
-        .feature-card { flex: 1; min-width: 280px; padding: 50px 35px; border-radius: 30px; background: #ffffff; box-shadow: var(--shadow); transition: 0.5s; border: 1px solid #f0f0f0; }
-        .feature-card:hover { transform: translateY(-15px); }
-        .feature-icon { font-size: 55px; margin-bottom: 25px; display: block; }
-
         /* ===== קטלוג ===== */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1240px; margin: 0 auto; padding: 0 20px; }
         .card { background: white; border-radius: 35px; overflow: hidden; box-shadow: var(--shadow); transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); cursor: pointer; }
         .card:hover { transform: translateY(-20px) scale(1.02); }
-        .card-img { width: 100%; height: 350px; background-size: cover; background-position: center; transition: 0.6s; }
+        .card-img { width: 100%; height: 350px; background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #f9f9f9; transition: 0.6s; }
         .card-body { padding: 35px; text-align: center; }
 
         /* ===== מודאל (חלון מוצר) ===== */
@@ -70,64 +63,51 @@
             background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; 
         }
         .modal-content { 
-            background: white; padding: 40px; border-radius: 40px; max-width: 800px; width: 90%; 
-            position: relative; animation: slideUp 0.4s ease; text-align: right;
+            background: white; padding: 40px; border-radius: 40px; max-width: 850px; width: 90%; 
+            position: relative; animation: slideUp 0.4s ease; text-align: right; overflow-y: auto; max-height: 90vh;
         }
-        .close-modal { position: absolute; left: 25px; top: 25px; font-size: 30px; cursor: pointer; color: var(--primary); }
+        .close-modal { position: absolute; left: 25px; top: 25px; font-size: 30px; cursor: pointer; color: var(--primary); z-index: 10; }
+        .product-modal-flex { display: flex; gap: 30px; flex-wrap: wrap; align-items: center; }
+        .modal-image { flex: 1; min-width: 250px; text-align: center; }
+        .modal-image img { max-width: 100%; border-radius: 20px; }
+        .modal-info { flex: 1.5; min-width: 300px; }
         .features-list { list-style: none; padding: 0; margin: 25px 0; }
         .features-list li { margin-bottom: 15px; font-size: 18px; display: flex; align-items: center; gap: 12px; }
 
         /* ===== תהליך ההזמנה ===== */
         .process-section { padding: 100px 20px; background: #fff; text-align: center; }
         .process-grid { display: flex; justify-content: center; gap: 30px; max-width: 1100px; margin: 50px auto 0; flex-wrap: wrap; }
-        .process-step { 
-            flex: 1; min-width: 280px; position: relative; padding: 40px 25px; 
-            background: #fdfdfd; border-radius: 30px; transition: 0.4s; border: 1px solid #f0f0f0; 
-        }
+        .process-step { flex: 1; min-width: 280px; position: relative; padding: 40px 25px; background: #fdfdfd; border-radius: 30px; transition: 0.4s; border: 1px solid #f0f0f0; }
         .process-step:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
-        .step-number { 
-            position: absolute; top: -20px; right: 20px; background: var(--primary); color: var(--accent); 
-            width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; 
-        }
+        .step-number { position: absolute; top: -20px; right: 20px; background: var(--primary); color: var(--accent); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; }
         .step-icon { font-size: 45px; margin-bottom: 15px; }
 
         /* ===== ביקורות אינסופיות ===== */
-        .reviews-section { background: #f8faff; padding: 100px 0; margin-top: 100px; overflow: hidden; position: relative; }
-        .reviews-section::before, .reviews-section::after { content: ""; position: absolute; top: 0; width: 250px; height: 100%; z-index: 5; pointer-events: none; }
-        .reviews-section::before { left: 0; background: linear-gradient(to right, #f8faff, transparent); }
-        .reviews-section::after { right: 0; background: linear-gradient(to left, #f8faff, transparent); }
-        .reviews-wrapper { display: flex; direction: ltr; }
-        .reviews-track { display: flex; width: max-content; animation: scroll-loop 50s linear infinite; }
-        .review-card { width: 380px; background: white; margin: 0 25px; padding: 45px; border-radius: 35px; box-shadow: 0 15px 35px rgba(0,0,0,0.03); flex-shrink: 0; text-align: right; direction: rtl; }
+        .reviews-section { background: #f8faff; padding: 100px 0; overflow: hidden; position: relative; }
+        .reviews-track { display: flex; width: max-content; animation: scroll-loop 50s linear infinite; direction: ltr; }
+        .review-card { width: 350px; background: white; margin: 0 20px; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: right; direction: rtl; }
         @keyframes scroll-loop { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* ===== הסיפור שלנו ===== */
         .about-section { padding: 100px 20px; background: white; }
         .about-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
-        .about-content { flex: 1; min-width: 320px; }
-        .about-text { font-size: 19px; line-height: 1.8; color: #555; margin-bottom: 25px; }
+        .about-content { flex: 1.2; }
+        .about-text { font-size: 19px; line-height: 1.8; color: #555; }
         .about-signature { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); border-right: 4px solid var(--accent); padding-right: 15px; font-weight: bold; }
-        .about-image { flex: 1; min-width: 320px; border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); }
-        .about-image img { width: 100%; display: block; transition: 0.5s; }
-        .about-image:hover img { transform: scale(1.05); }
+        .about-image { flex: 1; border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); }
+        .about-image img { width: 100%; display: block; }
 
-        /* ===== תשלום וכפתורים צפים ===== */
+        /* ===== Footer & Utils ===== */
         .payment-methods { background: #f9f9f9; padding: 60px 20px; text-align: center; }
-        .payment-icons img { height: 30px; margin: 0 15px; filter: grayscale(1); opacity: 0.6; }
-        .whatsapp-float { position: fixed; bottom: 35px; left: 35px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; z-index: 2000; text-decoration: none; box-shadow: 0 15px 30px rgba(37,211,102,0.4); transition: 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        #backToTop { position: fixed; bottom: 35px; right: 35px; background: var(--primary); color: white; width: 55px; height: 55px; border-radius: 50%; display: none; justify-content: center; align-items: center; border: none; cursor: pointer; z-index: 2000; transition: 0.3s; }
-
-        /* Animations */
-        .reveal { opacity: 0; transform: translateY(50px); transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .whatsapp-float { position: fixed; bottom: 35px; left: 35px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; z-index: 2000; text-decoration: none; box-shadow: 0 15px 30px rgba(37,211,102,0.4); }
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         @media (max-width: 768px) {
-            .section-title { font-size: 36px; }
             .about-container { flex-direction: column-reverse; text-align: center; }
-            .about-signature { border-right: none; border-bottom: 3px solid var(--accent); display: inline-block; padding: 0 0 10px 0; }
+            .about-signature { border-right: none; border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 10px; }
         }
     </style>
 </head>
@@ -146,37 +126,16 @@
     </div>
 </header>
 
-<section class="why-us reveal">
-    <h2 class="section-title">למה לבחור בנו?</h2>
-    <div class="features-grid">
-        <div class="feature-card">
-            <span class="feature-icon">🎁</span>
-            <h3>מתנה עם נשמה</h3>
-            <p>אנחנו לא סתם חנות, אנחנו סטודיו ליצירה. כל חריטה נעשית עם המון אהבה ודיוק.</p>
-        </div>
-        <div class="feature-card">
-            <span class="feature-icon">🏆</span>
-            <h3>איכות פרימיום</h3>
-            <p>שימוש בחומרים העמידים ביותר למזכרת שתחזיק מעמד לאורך שנים קדימה.</p>
-        </div>
-        <div class="feature-card">
-            <span class="feature-icon">🚚</span>
-            <h3>שירות מהלב</h3>
-            <p>מענה אישי בוואטסאפ, ייעוץ בבחירת העיצוב ומשלוחים מהירים לכל הארץ.</p>
-        </div>
-    </div>
-</section>
-
 <main id="shop">
     <h2 class="section-title reveal">הקולקציות שלנו</h2>
     <div class="grid">
         <div class="card reveal" onclick="contactWhatsApp('צמידים בחריטה')">
-            <div class="card-img" style="background-image: url('https://i.postimg.cc/9FmKqH9m/image-138f07.png');"></div>
-            <div class="card-body"><h3>צמידים בחריטה</h3><p>אלגנטיות אישית על פרק היד</p></div>
+            <div class="card-img" style="background-image: url('https://i.postimg.cc/9FmKqH9m/image-138f07.png'); background-size: cover;"></div>
+            <div class="card-body"><h3>צמידים בחריטה</h3><p>יוקרה אישית על פרק היד</p></div>
         </div>
         
-        <div class="card reveal" onclick="openProductModal('phone-case')">
-            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1603313011101-31c726a55ad4?q=80&w=600');"></div>
+        <div class="card reveal" onclick="openProductModal()">
+            <div class="card-img" style="background-image: url('https://files.cdn.printful.com/v2/inventory/21441/6532/iphone-14-pro-max-case-clear-63515438848ef.jpg');"></div>
             <div class="card-body">
                 <h3>מגנים לטלפון - Flexi Case</h3>
                 <p>הגנה שקופה וגמישה עם חריטה אישית</p>
@@ -184,8 +143,8 @@
         </div>
 
         <div class="card reveal" onclick="contactWhatsApp('חולצות מעוצבות')">
-            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600');"></div>
-            <div class="card-body"><h3>חולצות מעוצבות</h3><p>הסטייל שלכם, העיצוב שלנו</p></div>
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600'); background-size: cover;"></div>
+            <div class="card-body"><h3>חולצות מעוצבות</h3><p>הסטייל שלך בעיצוב אישי</p></div>
         </div>
     </div>
 </main>
@@ -193,17 +152,22 @@
 <div id="product-modal" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
-        <h2 class="section-title" style="margin-top:0; text-align:right;">Flexi Case – חריטה על הגנה</h2>
-        <p class="about-text">המגן הגמיש שלנו הוא הפתרון המושלם למי שרוצה לשמור על המראה המקורי של הטלפון ובו זמנית להוסיף לו נגיעה אישית מרגשת.</p>
-        
-        <ul class="features-list">
-            <li>✨ <strong>שקיפות קריסטלית:</strong> חומר TPU איכותי השומר על צבע המכשיר.</li>
-            <li>🛡️ <strong>עמידות בזעזועים:</strong> מעטפת גמישה המעניקה הגנה היקפית מלאה.</li>
-            <li>🔌 <strong>תאימות מלאה:</strong> תמיכה בטעינה אלחוטית וגישה נוחה לחיבורים.</li>
-            <li>💎 <strong>פרופיל דק:</strong> עיצוב מינימליסטי שאינו מכביד על הכיס.</li>
-        </ul>
-        
-        <button class="btn-main" onclick="contactWhatsApp('מגן Flexi Case עם חריטה')">להזמנה אישית בוואטסאפ</button>
+        <div class="product-modal-flex">
+            <div class="modal-image">
+                <img src="https://files.cdn.printful.com/v2/inventory/21441/6532/iphone-14-pro-max-case-clear-63515438848ef.jpg" alt="Flexi Case">
+            </div>
+            <div class="modal-info">
+                <h2 style="color:var(--primary); font-family:'Playfair Display'; font-size:32px; margin-bottom:15px;">Flexi Case – חריטה על הגנה</h2>
+                <p class="about-text">המגן הגמיש שלנו הוא הפתרון המושלם למי שרוצה לשמור על המראה המקורי של הטלפון ובו זמנית להוסיף לו נגיעה אישית מרגשת בחריטה מדויקת.</p>
+                <ul class="features-list">
+                    <li>✨ <strong>שקיפות קריסטלית:</strong> חומר TPU איכותי השומר על צבע המכשיר.</li>
+                    <li>🛡️ <strong>עמידות בזעזועים:</strong> מעטפת גמישה להגנה היקפית מלאה.</li>
+                    <li>🔌 <strong>תאימות מלאה:</strong> תמיכה בטעינה אלחוטית וגישה נוחה לחיבורים.</li>
+                    <li>💎 <strong>פרופיל דק:</strong> עיצוב מינימליסטי ונוח לאחיזה.</li>
+                </ul>
+                <button class="btn-main" onclick="contactWhatsApp('מגן Flexi Case עם חריטה')">להזמנה אישית בוואטסאפ</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -214,34 +178,32 @@
             <div class="step-number">1</div>
             <div class="step-icon">📱</div>
             <h3>שליחת הודעה</h3>
-            <p>שולחים לנו הודעה בוואטסאפ עם הרעיון שלכם. אנחנו עוזרים לכם לעצב ולבחור את החריטה המושלמת.</p>
+            <p>שולחים וואטסאפ עם הרעיון שלכם. אנחנו עוזרים לכם לעצב ולבחור את החריטה המושלמת.</p>
         </div>
         <div class="process-step">
             <div class="step-number">2</div>
             <div class="step-icon">🛠️</div>
             <h3>אנחנו מייצרים</h3>
-            <p>אחרי אישור העיצוב, אנחנו ניגשים למלאכה. חריטה מדויקת בלייזר עם הקפדה על כל פרט קטן.</p>
+            <p>חריטה מדויקת בלייזר על המוצר שבחרתם עם הקפדה על כל פרט קטן.</p>
         </div>
         <div class="process-step">
             <div class="step-number">3</div>
             <div class="step-icon">🏠</div>
             <h3>מגיע עד הבית</h3>
-            <p>המתנה נארזת באהבה ויוצאת אליכם במשלוח מהיר. כל מה שנשאר לכם זה רק להתרגש מהתוצאה.</p>
+            <p>המתנה נארזת באהבה ויוצאת אליכם במשלוח מהיר. רק נשאר להתרגש!</p>
         </div>
     </div>
 </section>
 
 <section class="reviews-section reveal">
     <h2 class="section-title">לקוחות מספרים</h2>
-    <div class="reviews-wrapper">
-        <div class="reviews-track">
-            <div class="review-card"><div style="color:var(--accent); margin-bottom:10px;">★★★★★</div><p>"החריטה יצאה מושלמת! האיכות של הצמיד ברמה גבוהה מאוד."</p><p><strong>מיכל כהן</strong></p></div>
-            <div class="review-card"><div style="color:var(--accent); margin-bottom:10px;">★★★★★</div><p>"שירות מהיר ואדיב, המגן הגיע ונראה מדהים."</p><p><strong>רועי לוי</strong></p></div>
-            <div class="review-card"><div style="color:var(--accent); margin-bottom:10px;">★★★★★</div><p>"מתנה מרגשת בטירוף, הדיוק בחריטה פשוט מרשים."</p><p><strong>עדי מזרחי</strong></p></div>
-            <div class="review-card"><div style="color:var(--accent); margin-bottom:10px;">★★★★★</div><p>"החריטה יצאה מושלמת! האיכות של הצמיד ברמה גבוהה מאוד."</p><p><strong>מיכל כהן</strong></p></div>
-            <div class="review-card"><div style="color:var(--accent); margin-bottom:10px;">★★★★★</div><p>"שירות מהיר ואדיב, המגן הגיע ונראה מדהים."</p><p><strong>רועי לוי</strong></p></div>
-            <div class="review-card"><div style="color:var(--accent); margin-bottom:10px;">★★★★★</div><p>"מתנה מרגשת בטירוף, הדיוק בחריטה פשוט מרשים."</p><p><strong>עדי מזרחי</strong></p></div>
-        </div>
+    <div class="reviews-track">
+        <div class="review-card"><div>★★★★★</div><p>"החריטה יצאה מושלמת! האיכות ברמה גבוהה מאוד."</p><p><strong>מיכל כהן</strong></p></div>
+        <div class="review-card"><div>★★★★★</div><p>"שירות מהיר, המגן נראה מדהים ומרגיש איכותי."</p><p><strong>רועי לוי</strong></p></div>
+        <div class="review-card"><div>★★★★★</div><p>"מתנה מרגשת בטירוף, הדיוק פשוט מרשים."</p><p><strong>עדי מזרחי</strong></p></div>
+        <div class="review-card"><div>★★★★★</div><p>"החריטה יצאה מושלמת! האיכות ברמה גבוהה מאוד."</p><p><strong>מיכל כהן</strong></p></div>
+        <div class="review-card"><div>★★★★★</div><p>"שירות מהיר, המגן נראה מדהים ומרגיש איכותי."</p><p><strong>רועי לוי</strong></p></div>
+        <div class="review-card"><div>★★★★★</div><p>"מתנה מרגשת בטירוף, הדיוק פשוט מרשים."</p><p><strong>עדי מזרחי</strong></p></div>
     </div>
 </section>
 
@@ -251,9 +213,6 @@
             <h2 class="section-title" style="text-align:right; margin-bottom:30px;">הסיפור מאחורי הלב</h2>
             <p class="about-text">
                 הכל התחיל מהרצון להפוך רגעים חולפים למזכרות נצחיות. ב-<strong>Engraving4Heart</strong>, אנחנו מאמינים שמתנה היא לא רק חפץ – היא סיפור ודרך לומר "אני אוהב אותך" בלי מילים.
-            </p>
-            <p class="about-text">
-                כל פריט שעובר תחת ידינו מקבל טיפול אישי, החל מבחירת החומרים האיכותיים ביותר ועד לחריטה המדויקת ביותר. המומחיות שלנו היא להפוך את הרעיון שלכם ליצירה מוחשית ומרגשת.
             </p>
             <div class="about-signature">באהבה, צוות Engraving4Heart</div>
         </div>
@@ -266,35 +225,31 @@
 <div class="payment-methods reveal">
     <p>תשלום מאובטח ב:</p>
     <div class="payment-icons">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" style="height:30px; margin:0 15px; opacity:0.6;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" alt="Visa" style="height:20px; margin:0 15px; opacity:0.6;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" style="height:30px; margin:0 15px; opacity:0.6;">
     </div>
 </div>
 
 <a href="https://wa.me/972507000306" class="whatsapp-float" target="_blank">💬</a>
-<button id="backToTop" onclick="scrollToTop()">▲</button>
 
 <script>
-    const btt = document.getElementById("backToTop");
     window.onscroll = function() {
         const nav = document.getElementById('navbar');
         if (window.scrollY > 80) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
-        if (window.scrollY > 500) btt.style.display = "flex";
-        else btt.style.display = "none";
         document.querySelectorAll(".reveal").forEach(el => {
             if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add("active");
         });
     };
-    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     function contactWhatsApp(name) {
         window.open(`https://wa.me/972507000306?text=${encodeURIComponent('היי, אשמח לפרטים על ' + name)}`, '_blank');
     }
-    function openProductModal(id) { document.getElementById('product-modal').style.display = 'flex'; }
+    function openProductModal() { document.getElementById('product-modal').style.display = 'flex'; }
     function closeModal() { document.getElementById('product-modal').style.display = 'none'; }
     window.onclick = function(event) { if (event.target.className === 'modal') closeModal(); }
 </script>
 
 </body>
+</html>
 </html>

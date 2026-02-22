@@ -12,12 +12,34 @@
         .mobile-menu { transition: transform 0.3s ease-in-out; }
         .hidden-menu { transform: translateX(100%); }
         .product-card:hover { border-color: #d4af37; transform: translateY(-5px); transition: all 0.3s ease; }
+        
+        /* Sales Pop-up Animation */
+        #sales-notification { transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); bottom: -100px; }
+        #sales-notification.show { bottom: 20px; }
+        
+        @keyframes pulse-red {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pulse-live { animation: pulse-red 2s infinite; }
     </style>
 </head>
 <body>
 
+    <div id="sales-notification" class="fixed left-4 z-[300] bg-white text-black p-4 rounded-xl shadow-2xl flex items-center gap-4 border border-gray-200 md:max-w-sm">
+        <div class="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden shrink-0">
+            <img id="pop-img" src="https://placehold.co/100x100/1a1a1a/FFF?text=Watch" class="w-full h-full object-cover">
+        </div>
+        <div class="text-right">
+            <p class="text-xs text-gray-500 font-bold" id="pop-name">מישהו מחיפה</p>
+            <p class="text-[13px] font-black leading-tight">רכש הרגע POEDAGAR™ Milano</p>
+            <p class="text-[10px] text-green-600 font-bold mt-1 italic">לפני 4 דקות</p>
+        </div>
+    </div>
+
     <div class="bg-[#d4af37] text-black text-center text-xs py-2 font-bold uppercase tracking-tighter">
-        מבצע השקה: 1+1 על כל קולקציית ה-DOHA ל-48 שעות הקרובות
+        מבצע השקה: 1+1 על כל קולקציית ה-DOHA | <span class="underline">נשארו 14 יחידות במלאי</span>
     </div>
 
     <header class="sticky top-0 z-[100] bg-black/80 backdrop-blur-md border-b border-white/10">
@@ -26,12 +48,16 @@
             <div class="text-2xl md:text-3xl font-black tracking-tighter italic uppercase">
                 POEDAGAR<span class="text-[#d4af37] ml-2">PARIS</span>
             </div>
-            <nav class="hidden md:flex gap-10 text-sm font-bold uppercase tracking-widest">
+            <nav class="hidden md:flex gap-10 text-sm font-bold uppercase tracking-widest text-white/70">
                 <a href="#collections" class="gold-glow transition">קולקציות</a>
                 <a href="#bestsellers" class="gold-glow transition">הנמכרים ביותר</a>
-                <a href="#reviews" class="gold-glow transition">ביקורות</a>
+                <a href="#reviews" class="gold-glow transition text-white">ביקורות ⭐</a>
             </nav>
             <div class="flex items-center gap-5 text-xl">
+                <div class="hidden md:flex items-center gap-2 text-xs font-bold text-green-500">
+                    <span class="w-2 h-2 bg-green-500 rounded-full pulse-live"></span>
+                    84 צופים באתר כרגע
+                </div>
                 <span class="cursor-pointer">🛒</span>
             </div>
         </div>
@@ -47,17 +73,41 @@
     </div>
 
     <section class="relative h-[85vh] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/50 z-10"></div>
         <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&q=80&w=1920" 
-             class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Hero">
+             class="absolute inset-0 w-full h-full object-cover opacity-60 scale-105" alt="Hero">
         
         <div class="relative z-20 text-center px-4">
-            <h2 class="text-[#d4af37] uppercase tracking-[0.3em] font-bold mb-4 text-sm md:text-base">Poedagar Paris | Masterpiece Collection</h2>
-            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-none italic">תפסיק לשלם על הלוגו.</h1>
-            <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
-                אותם חומרים, אותה איכות, מחיר שפוי. הגיע הזמן להתקדם ליוקרה חכמה.
+            <h2 class="text-[#d4af37] uppercase tracking-[0.4em] font-bold mb-4 text-xs md:text-sm">World-Class Craftsmanship</h2>
+            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-none italic tracking-tighter">תפסיק לשלם על הלוגו.</h1>
+            <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                אותם חומרים, אותה איכות, מחיר שפוי. <br> <span class="font-bold text-white underline decoration-[#d4af37]">משלוח אקספרס חינם לכל הארץ.</span>
             </p>
-            <a href="#bestsellers" class="inline-block bg-white text-black px-12 py-5 font-bold uppercase hover:bg-[#d4af37] transition duration-500 shadow-lg">לרכישה עכשיו</a>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#bestsellers" class="bg-white text-black px-12 py-5 font-black uppercase hover:bg-[#d4af37] transition duration-500 shadow-2xl rounded-sm">לרכישה עכשיו</a>
+                <p class="text-xs text-white/50 font-bold uppercase tracking-widest italic md:w-32">Limited stock available for Feb 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-8 bg-[#111] border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-[#d4af37] text-2xl">🚚</span>
+                <span class="text-[10px] md:text-xs font-bold uppercase">משלוח חינם ומהיר</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-[#d4af37] text-2xl">🛡️</span>
+                <span class="text-[10px] md:text-xs font-bold uppercase">24 חודשי אחריות</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-[#d4af37] text-2xl">🔄</span>
+                <span class="text-[10px] md:text-xs font-bold uppercase">החזר כספי מלא</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-[#d4af37] text-2xl">💎</span>
+                <span class="text-[10px] md:text-xs font-bold uppercase">זכוכית ספיר קריסטל</span>
+            </div>
         </div>
     </section>
 
@@ -69,85 +119,118 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group">
-                <div class="absolute top-0 left-0 bg-[#2d4a3e] text-white text-[10px] font-bold px-4 py-1 rounded-br-xl z-10 uppercase">פופולרי</div>
+                <div class="absolute top-3 left-3 bg-red-600 text-white text-[9px] font-black px-2 py-1 rounded shadow-lg z-10 animate-pulse">מכירה חמה</div>
                 <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Milano+Green" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Milano">
+                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Milano+Green" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase">POEDAGAR PARIS™ Milano</h3>
-                <div class="flex justify-center items-center gap-2 font-bold text-lg">
+                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">POEDAGAR PARIS™ Milano</h3>
+                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4">
                     <span class="text-[#d4af37]">₪459.90</span>
-                    <span class="text-gray-600 text-sm line-through">₪599.00</span>
+                    <span class="text-gray-600 text-sm line-through font-normal italic">₪599.00</span>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex justify-between text-[10px] font-bold uppercase">
+                        <span class="text-red-500 italic">נשארו 4 יחידות</span>
+                        <span class="text-gray-500 italic uppercase leading-none mt-1">Stock</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-1 rounded-full overflow-hidden">
+                        <div class="bg-red-600 h-full w-[15%]"></div>
+                    </div>
                 </div>
             </div>
 
             <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group">
-                <div class="absolute top-0 left-0 bg-[#2d4a3e] text-white text-[10px] font-bold px-4 py-1 rounded-br-xl z-10 uppercase">פופולרי</div>
                 <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Dubai+Skeleton" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Dubai">
+                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Dubai+Skeleton" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase">POEDAGAR PARIS™ Dubai</h3>
-                <div class="flex justify-center items-center gap-2 font-bold text-lg">
+                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">POEDAGAR PARIS™ Dubai</h3>
+                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4">
                     <span class="text-[#d4af37]">₪549.90</span>
-                    <span class="text-gray-600 text-sm line-through">₪759.00</span>
+                    <span class="text-gray-600 text-sm line-through font-normal italic">₪759.00</span>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex justify-between text-[10px] font-bold uppercase text-gray-400 italic">
+                        <span>במלאי מוגבל</span>
+                        <span>Stock</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-1 rounded-full overflow-hidden">
+                        <div class="bg-[#d4af37] h-full w-[45%]"></div>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group border-yellow-500/20">
-                <div class="absolute top-0 right-0 bg-[#1a2e26] text-white text-[10px] font-bold px-4 py-1 rounded-bl-xl z-10 uppercase">מהדורה מוגבלת</div>
+            <div class="product-card bg-[#111] border-2 border-[#d4af37]/30 rounded-2xl p-4 relative group">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#d4af37] text-black text-[10px] font-black px-4 py-1 rounded-full z-10 whitespace-nowrap">הנמכר ביותר החודש</div>
                 <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Doha+Gold" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Doha">
+                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Doha+Gold" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
-                <h3 class="text-center font-bold text-[10px] mb-2 uppercase leading-tight italic">POEDAGAR PARIS X LONGLUX™ <br> Doha Special</h3>
-                <div class="flex justify-center items-center gap-2 font-bold text-lg">
-                    <span class="text-[#d4af37]"><small class="text-[10px]">החל מ-</small> ₪949.90</span>
-                    <span class="text-gray-600 text-sm line-through">₪1,499.00</span>
+                <h3 class="text-center font-bold text-xs mb-2 uppercase leading-tight italic">POEDAGAR PARIS X LONGLUX™</h3>
+                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4">
+                    <span class="text-[#d4af37]">₪949.90</span>
+                    <span class="text-gray-600 text-sm line-through font-normal italic">₪1,499.00</span>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex justify-between text-[10px] font-bold uppercase text-red-500 italic">
+                        <span>יחידה אחרונה במלאי!</span>
+                        <span>Stock</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-1 rounded-full overflow-hidden">
+                        <div class="bg-red-600 h-full w-[5%]"></div>
+                    </div>
                 </div>
             </div>
 
             <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group">
-                <div class="absolute top-0 left-0 bg-[#2d4a3e] text-white text-[10px] font-bold px-4 py-1 rounded-br-xl z-10 uppercase">פופולרי</div>
                 <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Tokyo+Blue" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Tokyo">
+                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Tokyo+Blue" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase">POEDAGAR PARIS™ Tokyo</h3>
-                <div class="flex justify-center items-center gap-2 font-bold text-lg">
+                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">POEDAGAR PARIS™ Tokyo</h3>
+                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4">
                     <span class="text-[#d4af37]">₪489.90</span>
-                    <span class="text-gray-600 text-sm line-through">₪659.00</span>
+                    <span class="text-gray-600 text-sm line-through font-normal italic">₪659.00</span>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex justify-between text-[10px] font-bold uppercase text-gray-400 italic">
+                        <span>מלאי מתחדש</span>
+                        <span>Stock</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-1 rounded-full overflow-hidden">
+                        <div class="bg-[#d4af37] h-full w-[80%]"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="mt-16 flex justify-center">
-            <button class="bg-[#1a2e26] text-white px-12 py-4 rounded font-bold hover:bg-[#2d4a3e] transition-all uppercase tracking-widest text-sm shadow-xl italic">צפייה בהכל</button>
         </div>
     </section>
 
     <section class="py-24 bg-white text-black">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
             <div class="flex-1 text-right order-2 md:order-1">
-                <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-none italic uppercase">
-                    מגדירים יוקרה <br> <span class="text-[#2d4a3e]">בתנאים שלך.</span>
-                </h2>
+                <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-none italic uppercase">יוקרה פריזאית <br> <span class="text-[#2d4a3e]">במחיר שפוי.</span></h2>
                 <div class="space-y-8 text-lg text-gray-700 leading-relaxed">
-                    <p class="font-bold text-2xl text-black underline decoration-[#d4af37]">למה לשלם 90% מהמחיר רק על השם?</p>
-                    <p>ב-<strong>POEDAGAR PARIS</strong> חתכנו את כל מה שמיותר. לקחנו את אותם חומרי הגלם של מותגי הקצה והוצאנו מהמשוואה את המתווכים. התוצאה: איכות קצה במחיר הוגן.</p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-4 justify-end font-bold">
-                            <span>איכות פרימיום ללא "קנס מותג"</span>
-                            <span class="bg-[#2d4a3e] text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">✓</span>
-                        </li>
-                        <li class="flex items-center gap-4 justify-end font-bold">
-                            <span>אחריות מלאה ל-24 חודשים</span>
-                            <span class="bg-[#2d4a3e] text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">✓</span>
-                        </li>
-                    </ul>
+                    <p class="font-bold text-2xl text-black underline decoration-[#d4af37] decoration-4 uppercase">No More Brand Tax</p>
+                    <p>ב-<strong>POEDAGAR PARIS</strong> חתכנו את כל מה שמיותר. אנחנו לא משלמים למפורסמים, לא מחזיקים חנויות פאר בשאנז אליזה – אנחנו פשוט מייצרים שעונים מדהימים עם אותם חומרי גלם של מותגי העל.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg border-r-4 border-[#2d4a3e]">
+                            <span class="font-black block uppercase text-xs text-[#2d4a3e]">Case Material</span>
+                            <span class="font-bold">Stainless Steel 316L</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border-r-4 border-[#2d4a3e]">
+                            <span class="font-black block uppercase text-xs text-[#2d4a3e]">Crystal</span>
+                            <span class="font-bold">Scratch-Proof Sapphire</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="mt-12 text-center md:text-right">
-                    <a href="#bestsellers" class="inline-block bg-[#1a2e26] text-white px-14 py-5 rounded-xl font-black text-xl hover:bg-[#2d4a3e] transition-all shadow-2xl uppercase italic">לצפייה בקולקציה</a>
+                    <a href="#bestsellers" class="inline-block bg-[#1a2e26] text-white px-14 py-5 rounded-xl font-black text-xl hover:bg-[#2d4a3e] transition-all shadow-2xl uppercase italic">הזמן עכשיו</a>
                 </div>
             </div>
             <div class="flex-1 order-1 md:order-2">
-                <img src="https://images.unsplash.com/photo-1585123334904-845d60e97b29?auto=format&fit=crop&q=80&w=800" class="rounded-3xl shadow-2xl border-8 border-gray-50 object-cover w-full h-[500px]">
+                <div class="relative">
+                    <div class="absolute -top-10 -right-10 bg-[#d4af37] w-32 h-32 rounded-full flex items-center justify-center text-black font-black text-center text-xs p-4 rotate-12 shadow-2xl border-4 border-white z-20">
+                        הנחה מיוחדת לקנייה ראשונה!
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1585123334904-845d60e97b29?auto=format&fit=crop&q=80&w=800" class="rounded-3xl shadow-2xl border-8 border-gray-50 object-cover w-full h-[500px]">
+                </div>
             </div>
         </div>
     </section>
@@ -155,42 +238,32 @@
     <section id="reviews" class="py-24 bg-[#0a0a0a] border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-[#d4af37] uppercase tracking-[0.3em] font-bold mb-4 text-xs">מה אומרים עלינו</h2>
-                <h3 class="text-4xl md:text-5xl font-black italic">מעל 1,400 גברים כבר התחדשו</h3>
+                <h2 class="text-[#d4af37] uppercase tracking-[0.3em] font-bold mb-4 text-xs">Verified Reviews</h2>
+                <h3 class="text-4xl md:text-5xl font-black italic italic uppercase tracking-tighter">הם כבר עברו ל-PARIS</h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
-                <div class="bg-[#111] p-8 rounded-2xl border border-white/5 hover:border-[#d4af37]/30 transition duration-300">
+                <div class="bg-[#111] p-8 rounded-2xl border border-white/5 relative group hover:border-[#d4af37]/50 transition">
                     <div class="flex items-center gap-1 text-yellow-500 mb-4 justify-end">★★★★★</div>
-                    <p class="text-gray-300 mb-6 italic text-sm italic">"ה-Milano הגיע תוך 3 ימים והוא פשוט מטורף. המשקל, הגימור, הכל פרימיום לגמרי."</p>
+                    <p class="text-gray-300 mb-6 italic text-sm leading-relaxed">"שעון מטורף. הגיע באריזה יוקרתית עם כל התעודות. מרגיש כבד ואיכותי ביד."</p>
                     <div class="flex items-center gap-4 border-t border-white/5 pt-6 justify-end">
-                        <div class="text-right">
-                            <div class="font-bold text-sm">אריאל בן דוד</div>
-                            <div class="text-xs text-gray-500">רוכש מאומת ✅</div>
-                        </div>
-                        <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-[#d4af37] text-xs">א.ב</div>
+                        <div class="text-right"><div class="font-bold text-sm">אריאל בן דוד</div><div class="text-xs text-green-500 font-bold italic">רוכש מאומת ✅</div></div>
+                        <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-[#d4af37]">א.ב</div>
                     </div>
                 </div>
-                <div class="bg-[#111] p-8 rounded-2xl border border-[#d4af37]/20 relative transform md:-translate-y-4">
-                    <div class="absolute -top-3 right-8 bg-[#d4af37] text-black text-[10px] font-black px-3 py-1 rounded-full uppercase">הבחירה שלכם</div>
+                <div class="bg-[#111] p-8 rounded-2xl border-2 border-[#d4af37]/30 relative transform md:-translate-y-4">
                     <div class="flex items-center gap-1 text-yellow-500 mb-4 justify-end">★★★★★</div>
-                    <p class="text-gray-300 mb-6 italic text-sm">"וואו. זה לא סתם שעון, זה תכשיט. כל מי שרואה אותו בטוח ששילמתי עליו עשרות אלפים."</p>
+                    <p class="text-gray-300 mb-6 italic text-sm leading-relaxed">"לא מאמין שזה המחיר. נראה כמו רולקס ב-50 אלף שקל. ממליץ בחום על ה-Doha."</p>
                     <div class="flex items-center gap-4 border-t border-white/5 pt-6 justify-end">
-                        <div class="text-right">
-                            <div class="font-bold text-sm">דניאל לוי</div>
-                            <div class="text-xs text-gray-500">רוכש מאומת ✅</div>
-                        </div>
-                        <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-[#d4af37] text-xs">ד.ל</div>
+                        <div class="text-right"><div class="font-bold text-sm">דניאל לוי</div><div class="text-xs text-green-500 font-bold italic">רוכש מאומת ✅</div></div>
+                        <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-[#d4af37]">ד.ל</div>
                     </div>
                 </div>
-                <div class="bg-[#111] p-8 rounded-2xl border border-white/5 hover:border-[#d4af37]/30 transition duration-300">
+                <div class="bg-[#111] p-8 rounded-2xl border border-white/5 group hover:border-[#d4af37]/50 transition">
                     <div class="flex items-center gap-1 text-yellow-500 mb-4 justify-end">★★★★★</div>
-                    <p class="text-gray-300 mb-6 italic text-sm">"בתור אספן הייתי סקפטי, אבל האיכות של ה-Tokyo הפתיעה אותי לטובה. תמורה מטורפת."</p>
+                    <p class="text-gray-300 mb-6 italic text-sm leading-relaxed">"הזמנתי ביום שני, הגיע ביום רביעי עד הבית. שירות מדהים ומוצר מושלם."</p>
                     <div class="flex items-center gap-4 border-t border-white/5 pt-6 justify-end">
-                        <div class="text-right">
-                            <div class="font-bold text-sm">יונתן קופר</div>
-                            <div class="text-xs text-gray-500">רוכש מאומת ✅</div>
-                        </div>
-                        <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-[#d4af37] text-xs">י.ק</div>
+                        <div class="text-right"><div class="font-bold text-sm">יונתן קופר</div><div class="text-xs text-green-500 font-bold italic">רוכש מאומת ✅</div></div>
+                        <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-[#d4af37]">י.ק</div>
                     </div>
                 </div>
             </div>
@@ -199,29 +272,28 @@
 
     <section class="py-12 bg-black border-t border-white/10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
-            <div class="flex items-center gap-2 mb-6 text-gray-400 text-sm font-bold uppercase tracking-widest">
-                <span class="text-green-500 text-xl">🔒</span>
-                תשלום מאובטח ע"י הצפנת SSL בתקן המחמיר ביותר
+            <div class="flex items-center gap-2 mb-6 text-gray-400 text-xs font-bold uppercase tracking-widest italic">
+                <span class="text-green-500 text-xl">🔒</span> Secure 256-bit SSL Encrypted Checkout
             </div>
-            <div class="flex flex-wrap justify-center gap-6 opacity-60 grayscale hover:grayscale-0 transition duration-500">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-6" alt="PayPal">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-6" alt="Visa">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-6" alt="Mastercard">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo_%282018%29.svg" class="h-6" alt="Amex">
+            <div class="flex flex-wrap justify-center gap-8 opacity-40 grayscale hover:grayscale-0 transition duration-1000">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-5">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-5">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-5">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo_%282018%29.svg" class="h-5">
             </div>
         </div>
     </section>
 
     <footer class="bg-black py-16 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="text-3xl font-black italic mb-8 uppercase italic">POEDAGAR<span class="text-[#d4af37]">PARIS</span></div>
-            <div class="flex flex-wrap justify-center gap-8 mb-12 text-sm text-gray-500 uppercase font-bold tracking-widest">
-                <a href="#" class="hover:text-white transition">תקנון</a>
-                <a href="#" class="hover:text-white transition">משלוחים</a>
-                <a href="#" class="hover:text-white transition">צור קשר</a>
-                <a href="#" class="hover:text-white transition">שאלות נפוצות</a>
+            <div class="text-3xl font-black italic mb-8 uppercase italic tracking-tighter">POEDAGAR<span class="text-[#d4af37]">PARIS</span></div>
+            <div class="flex flex-wrap justify-center gap-8 mb-12 text-xs text-gray-500 uppercase font-bold tracking-[0.2em]">
+                <a href="#" class="hover:text-white transition">Shipping Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
+                <a href="#" class="hover:text-white transition">Contact Us</a>
+                <a href="#" class="hover:text-white transition">Track Order</a>
             </div>
-            <p class="text-gray-700 text-[10px] tracking-[0.2em] uppercase">© 2026 POEDAGAR PARIS | NO LIMITS ON LUXURY</p>
+            <p class="text-gray-700 text-[9px] tracking-[0.3em] uppercase">© 2026 POEDAGAR PARIS | QUALITY WITHOUT BORDERS</p>
         </div>
     </footer>
 
@@ -230,6 +302,29 @@
             const menu = document.getElementById('sideMenu');
             menu.classList.toggle('hidden-menu');
         }
+
+        // Sales Pop-up Logic
+        const locations = ["מתל אביב", "מירושלים", "מחיפה", "מאילת", "מראשון לציון", "מנתניה"];
+        const products = ["POEDAGAR™ Milano", "POEDAGAR™ Dubai", "Doha Special Edition", "POEDAGAR™ Tokyo"];
+        
+        function showNotification() {
+            const pop = document.getElementById('sales-notification');
+            const loc = locations[Math.floor(Math.random() * locations.length)];
+            const prod = products[Math.floor(Math.random() * products.length)];
+            
+            document.getElementById('pop-name').innerText = `מישהו ${loc}`;
+            document.getElementById('pop-name').nextElementSibling.innerText = `רכש הרגע ${prod}`;
+            
+            pop.classList.add('show');
+            
+            setTimeout(() => {
+                pop.classList.remove('show');
+            }, 5000);
+        }
+
+        // Initial pop up and repeat
+        setTimeout(showNotification, 3000);
+        setInterval(showNotification, 15000);
     </script>
 </body>
 </html>

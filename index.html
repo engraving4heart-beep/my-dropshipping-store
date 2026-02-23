@@ -14,29 +14,11 @@
         .mobile-menu { transition: transform 0.3s ease-in-out; }
         .hidden-menu { transform: translateX(100%); }
         .product-card:hover { border-color: #d4af37; transform: translateY(-5px); transition: all 0.3s ease; }
-        
-        /* Sales Pop-up Animation */
         #sales-notification { transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); bottom: -100px; }
         #sales-notification.show { bottom: 20px; }
-        
-        /* Back to Top Button */
-        #backToTop {
-            transition: all 0.4s ease;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-        }
-        #backToTop.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        @keyframes pulse-red {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+        #backToTop { transition: all 0.4s ease; opacity: 0; visibility: hidden; transform: translateY(20px); }
+        #backToTop.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        @keyframes pulse-red { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
         .pulse-live { animation: pulse-red 2s infinite; }
     </style>
 </head>
@@ -93,47 +75,21 @@
         <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/50 z-10"></div>
         <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&q=80&w=1920" 
              class="absolute inset-0 w-full h-full object-cover opacity-60 scale-105" alt="Hero">
-        
         <div class="relative z-20 text-center px-4" data-aos="fade-up" data-aos-duration="1500">
             <h2 class="luxury-logo text-[#d4af37] mb-4 text-xs md:text-sm italic tracking-[0.4em]">World-Class Craftsmanship</h2>
             <h1 class="text-5xl md:text-8xl font-black mb-6 leading-none italic tracking-tighter">תפסיק לשלם על הלוגו.</h1>
             <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                 אותם חומרים, אותה איכות, מחיר שפוי. <br> <span class="font-bold text-white underline decoration-[#d4af37]">משלוח אקספרס חינם לכל הארץ.</span>
             </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#bestsellers" class="bg-white text-black px-12 py-5 font-black uppercase hover:bg-[#d4af37] transition duration-500 shadow-2xl rounded-sm">לרכישה עכשיו</a>
-                <p class="text-xs text-white/50 font-bold uppercase tracking-widest italic md:w-32">Limited stock available for Feb 2026</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-8 bg-[#111] border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="100">
-                <span class="text-[#d4af37] text-2xl">🚚</span>
-                <span class="text-[10px] md:text-xs font-bold uppercase">משלוח חינם ומהיר</span>
-            </div>
-            <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="200">
-                <span class="text-[#d4af37] text-2xl">🛡️</span>
-                <span class="text-[10px] md:text-xs font-bold uppercase">24 חודשי אחריות</span>
-            </div>
-            <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="300">
-                <span class="text-[#d4af37] text-2xl">🔄</span>
-                <span class="text-[10px] md:text-xs font-bold uppercase">החזר כספי מלא</span>
-            </div>
-            <div class="flex flex-col items-center gap-2" data-aos="zoom-in" data-aos-delay="400">
-                <span class="text-[#d4af37] text-2xl">💎</span>
-                <span class="text-[10px] md:text-xs font-bold uppercase">זכוכית ספיר קריסטל</span>
-            </div>
+            <a href="#bestsellers" class="bg-white text-black px-12 py-5 font-black uppercase hover:bg-[#d4af37] transition duration-500 shadow-2xl inline-block">לרכישה עכשיו</a>
         </div>
     </section>
 
     <section id="bestsellers" class="py-20 px-6 max-w-7xl mx-auto text-right">
         <div class="flex flex-col items-center mb-16 text-center" data-aos="fade-down">
-            <h2 class="text-4xl font-black mb-4 tracking-tighter uppercase font-black italic">הנמכרים ביותר</h2>
+            <h2 class="text-4xl font-black mb-4 tracking-tighter uppercase italic">הנמכרים ביותר</h2>
             <div class="w-20 h-1 bg-[#d4af37]"></div>
         </div>
-
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="100">
                 <div class="absolute top-3 left-3 bg-red-600 text-white text-[9px] font-black px-2 py-1 rounded shadow-lg z-10 animate-pulse">מכירה חמה</div>
@@ -141,51 +97,71 @@
                     <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Milano+Green" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">POEDAGAR PARIS™ Milano</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4">
-                    <span class="text-[#d4af37]">₪459.90</span>
-                    <span class="text-gray-600 text-sm line-through font-normal italic">₪599.00</span>
-                </div>
-                <div class="space-y-1">
-                    <div class="flex justify-between text-[10px] font-bold uppercase">
-                        <span class="text-red-500 italic">נשארו 4 יחידות</span>
-                    </div>
-                    <div class="w-full bg-gray-800 h-1 rounded-full overflow-hidden">
-                        <div class="bg-red-600 h-full w-[15%]"></div>
-                    </div>
-                </div>
+                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪459.90</div>
             </div>
             <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="200">
                 <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
                     <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Dubai+Gold" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">POEDAGAR PARIS™ Dubai</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4">
-                    <span class="text-[#d4af37]">₪529.90</span>
-                    <span class="text-gray-600 text-sm line-through font-normal italic">₪750.00</span>
-                </div>
-                <div class="space-y-1 text-center font-bold text-[10px] text-gray-500 uppercase">זמין במלאי</div>
+                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪529.90</div>
             </div>
             <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="300">
                 <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
                     <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Doha+Black" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Doha Special Edition</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4">
-                    <span class="text-[#d4af37]">₪949.90</span>
-                    <span class="text-gray-600 text-sm line-through font-normal italic">₪1,200.00</span>
-                </div>
-                <div class="space-y-1 text-center font-bold text-[10px] text-gray-500 uppercase italic">מהדורה מוגבלת</div>
+                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪949.90</div>
             </div>
             <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="400">
                 <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
                     <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Tokyo+Blue" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">POEDAGAR PARIS™ Tokyo</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4">
-                    <span class="text-[#d4af37]">₪489.90</span>
-                    <span class="text-gray-600 text-sm line-through font-normal italic">₪620.00</span>
-                </div>
-                <div class="space-y-1 text-center font-bold text-[10px] text-green-500 uppercase">הנמכר ביותר החודש</div>
+                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪489.90</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#0a0a0a] border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-black italic uppercase mb-2">למה לשלם יותר?</h2>
+                <p class="text-gray-400">השוואה שחוסכת לך אלפי שקלים</p>
+            </div>
+            
+            <div class="overflow-hidden rounded-2xl border border-white/10 shadow-2xl" data-aos="zoom-in">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-[#111] text-[#d4af37] text-sm uppercase">
+                            <th class="p-4 border-b border-white/10 italic">תכונה</th>
+                            <th class="p-4 border-b border-white/10 text-center">מותגי על</th>
+                            <th class="p-4 border-b border-white/10 text-center bg-[#d4af37]/10">POEDAGAR PARIS</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="p-4 font-bold">חומר המארז</td>
+                            <td class="p-4 text-center text-gray-500 text-xs">פלדת אל-חלד 316L</td>
+                            <td class="p-4 text-center font-bold bg-[#d4af37]/5">פלדת אל-חלד 316L</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="p-4 font-bold">סוג הזכוכית</td>
+                            <td class="p-4 text-center text-gray-500 text-xs">ספיר קריסטל</td>
+                            <td class="p-4 text-center font-bold bg-[#d4af37]/5">ספיר קריסטל</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="p-4 font-bold">מנגנון</td>
+                            <td class="p-4 text-center text-gray-500 text-xs">קוורץ/אוטומטי יפני</td>
+                            <td class="p-4 text-center font-bold bg-[#d4af37]/5">קוורץ/אוטומטי יפני</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition text-red-500">
+                            <td class="p-4 font-bold text-white">מחיר ממוצע</td>
+                            <td class="p-4 text-center font-bold">₪4,500+</td>
+                            <td class="p-4 text-center font-bold bg-[#d4af37]/20 text-[#d4af37] text-lg italic">₪499</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -230,7 +206,6 @@
 
     <footer class="bg-black py-16 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 text-right">
-            
             <div data-aos="fade-up">
                 <h4 class="text-[#d4af37] font-bold uppercase tracking-widest mb-4 text-sm">פרטי קשר ושירות</h4>
                 <div class="space-y-3 text-gray-400 text-sm leading-relaxed">
@@ -240,8 +215,7 @@
                     <p>אימייל: <span class="text-white italic"></span></p>
                 </div>
             </div>
-
-            <div class="flex flex-col items-center md:items-start justify-center text-center md:text-left">
+            <div class="flex flex-col items-center md:items-start justify-center">
                 <div class="inline-flex items-center gap-3 bg-green-500/10 border border-green-500/20 px-6 py-3 rounded-full mb-6">
                     <span class="text-green-500 animate-pulse text-xl">🔒</span>
                     <span class="text-green-500 text-sm font-bold uppercase tracking-widest">תשלום מאובטח SSL</span>
@@ -250,37 +224,22 @@
                     <span class="text-2xl font-light tracking-[0.2em]">POEDAGAR</span>
                     <span class="text-[#d4af37] text-xs font-bold tracking-[0.5em] mt-1 mr-1">PARIS</span>
                 </div>
-                <p class="text-gray-700 text-[9px] tracking-[0.3em] uppercase">© 2026 POEDAGAR PARIS | QUALITY WITHOUT BORDERS</p>
+                <p class="text-gray-700 text-[9px] tracking-[0.3em] uppercase">© 2026 POEDAGAR PARIS</p>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Init AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-
-        function toggleMenu() {
-            const menu = document.getElementById('sideMenu');
-            menu.classList.toggle('hidden-menu');
-        }
-
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+        function toggleMenu() { document.getElementById('sideMenu').classList.toggle('hidden-menu'); }
         const backToTopBtn = document.getElementById('backToTop');
         window.onscroll = function() {
-            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) { backToTopBtn.classList.add('visible'); } 
+            else { backToTopBtn.classList.remove('visible'); }
         };
-
-        const locations = ["מתל אביב", "מירושלים", "מחיפה", "מאילת", "מראשון לציון", "מנתניה"];
+        const locations = ["מתל אביב", "מירושלים", "מחיפה", "מאילת", "מראשון לציון"];
         const products = ["POEDAGAR™ Milano", "POEDAGAR™ Dubai", "Doha Special Edition", "POEDAGAR™ Tokyo"];
-        
         function showNotification() {
             const pop = document.getElementById('sales-notification');
             if(!pop) return;
@@ -291,7 +250,6 @@
             pop.classList.add('show');
             setTimeout(() => { pop.classList.remove('show'); }, 5000);
         }
-
         setTimeout(showNotification, 3000);
         setInterval(showNotification, 15000);
     </script>

@@ -17,9 +17,6 @@
         
         #backToTop { transition: all 0.4s ease; opacity: 0; visibility: hidden; transform: translateY(20px); }
         #backToTop.visible { opacity: 1; visibility: visible; transform: translateY(0); }
-        
-        @keyframes pulse-red { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
-        .pulse-live { animation: pulse-red 2s infinite; }
 
         @keyframes whatsapp-pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
@@ -28,7 +25,6 @@
         }
         .whatsapp-btn { animation: whatsapp-pulse 2s infinite; }
 
-        /* FAQ Styling */
         .faq-item { border-bottom: 1px solid rgba(255,255,255,0.05); }
         .faq-question { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; transition: all 0.3s; }
         .faq-question:hover { color: #d4af37; }
@@ -74,13 +70,7 @@
                 <a href="#faq" class="gold-glow transition">שאלות נפוצות</a>
                 <a href="#reviews" class="gold-glow transition text-white">ביקורות ⭐</a>
             </nav>
-            <div class="flex items-center gap-5 text-xl">
-                <div class="hidden md:flex items-center gap-2 text-xs font-bold text-green-500">
-                    <span class="w-2 h-2 bg-green-500 rounded-full pulse-live"></span>
-                    84 צופים באתר כרגע
-                </div>
-                <span class="cursor-pointer">🛒</span>
-            </div>
+            <div class="w-10 md:w-0"></div> 
         </div>
     </header>
 
@@ -234,96 +224,16 @@
         </div>
     </section>
 
-    <section class="py-20 bg-black">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="luxury-logo text-[#d4af37] text-sm tracking-[0.3em] mb-2">Designed for Excellence</h2>
-                <h3 class="text-3xl md:text-5xl font-black italic uppercase italic tracking-tighter">הסטייל שלך, הזמן שלך</h3>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="aspect-square overflow-hidden rounded-lg group">
-                    <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 scale-110 group-hover:scale-100">
-                </div>
-                <div class="aspect-square overflow-hidden rounded-lg group">
-                    <img src="https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 scale-110 group-hover:scale-100">
-                </div>
-                <div class="aspect-square overflow-hidden rounded-lg group">
-                    <img src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 scale-110 group-hover:scale-100">
-                </div>
-                <div class="aspect-square overflow-hidden rounded-lg group">
-                    <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 scale-110 group-hover:scale-100">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="faq" class="py-24 bg-[#050505] text-right border-t border-white/5">
         <div class="max-w-3xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-black italic uppercase mb-4 tracking-tighter">שאלות נפוצות</h2>
                 <div class="w-16 h-1 bg-[#d4af37] mx-auto"></div>
             </div>
-
             <div class="space-y-2">
-                <div class="faq-item" data-aos="fade-up">
-                    <div class="faq-question text-lg font-bold" onclick="toggleFaq(this)">
-                        <span>אחריות על המוצר</span>
-                        <span class="faq-icon transition-transform text-2xl font-light">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        אנחנו מעניקים אחריות מלאה למשך 12 חודשים על כל רכישת שעון LUMIÈRE, המכסה את תקינות המנגנון ופגמי ייצור.
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up">
-                    <div class="faq-question text-lg font-bold" onclick="toggleFaq(this)">
-                        <span>מדיניות החזר כספי</span>
-                        <span class="faq-icon transition-transform text-2xl font-light">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        ניתן לקבל החזר כספי מלא עד 12 יום מיום קבלת המוצר. ההחזר מותנה בהחזרת השעון באריזתו המקורית, ובתנאי שלא נעשה בו שימוש כלל.
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up">
-                    <div class="faq-question text-lg font-bold" onclick="toggleFaq(this)">
-                        <span>תוך כמה זמן מגיע המשלוח?</span>
-                        <span class="faq-icon transition-transform text-2xl font-light">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        זמן המשלוח לכל חלקי הארץ נע בין 15 ל-30 ימי עסקים בממוצע. המשלוח מתבצע באמצעות חברת שליחים עד לפתח הבית.
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up">
-                    <div class="faq-question text-lg font-bold" onclick="toggleFaq(this)">
-                        <span>האם השעונים עמידים במים?</span>
-                        <span class="faq-icon transition-transform text-2xl font-light">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        כן, רוב הדגמים שלנו עמידים במים (נתזים, גשם ושטיפת ידיים). מומלץ להימנע מצלילה או שחייה ממושכת כדי לשמור על אורך חיי המנגנון.
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up">
-                    <div class="faq-question text-lg font-bold" onclick="toggleFaq(this)">
-                        <span>האם ניתן לבצע איסוף עצמי?</span>
-                        <span class="faq-icon transition-transform text-2xl font-light">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        כרגע אנו פועלים כחנות אונליין בלבד כדי לחסוך לכם את פערי התיווך והשכירות, ולכן אין אפשרות לאיסוף עצמי. אנו מציעים משלוח אקספרס עד הבית.
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up">
-                    <div class="faq-question text-lg font-bold" onclick="toggleFaq(this)">
-                        <span>מה קורה אם אני רוצה להחליף דגם?</span>
-                        <span class="faq-icon transition-transform text-2xl font-light">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        ניתן להחליף דגם תוך 14 יום מקבלתו, בתנאי שהמוצר לא היה בשימוש והוא באריזתו המקורית. צרו קשר עם שירות הלקוחות בווטסאפ לתיאום.
-                    </div>
-                </div>
+                <div class="faq-item" data-aos="fade-up"><div class="faq-question text-lg font-bold" onclick="toggleFaq(this)"><span>אחריות על המוצר</span><span class="faq-icon text-2xl font-light">+</span></div><div class="faq-answer">אחריות מלאה למשך 12 חודשים על המנגנון.</div></div>
+                <div class="faq-item" data-aos="fade-up"><div class="faq-question text-lg font-bold" onclick="toggleFaq(this)"><span>מדיניות החזר כספי</span><span class="faq-icon text-2xl font-light">+</span></div><div class="faq-answer">החזר כספי מלא עד 12 יום באריזה מקורית.</div></div>
+                <div class="faq-item" data-aos="fade-up"><div class="faq-question text-lg font-bold" onclick="toggleFaq(this)"><span>תוך כמה זמן מגיע המשלוח?</span><span class="faq-icon text-2xl font-light">+</span></div><div class="faq-answer">בין 15 ל-30 ימי עסקים עם שליח עד הבית.</div></div>
             </div>
         </div>
     </section>
@@ -332,60 +242,41 @@
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h3 class="text-4xl md:text-5xl font-black italic uppercase mb-16" data-aos="zoom-in">הם כבר עברו ל-LUMIÈRE</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-[#111] p-8 rounded-2xl border border-white/5 text-right" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-[#111] p-8 rounded-2xl border border-white/5 text-right" data-aos="fade-up">
                     <div class="flex items-center gap-1 text-yellow-500 mb-4 justify-end">★★★★★</div>
                     <p class="text-gray-300 italic">"שעון מטורף. הגיע באריזה יוקרתית עם כל התעודות."</p>
                     <p class="mt-4 font-bold text-sm">אריאל בן דוד ✅</p>
-                </div>
-                <div class="bg-[#111] p-8 rounded-2xl border-2 border-[#d4af37]/30 text-right transform md:-translate-y-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center gap-1 text-yellow-500 mb-4 justify-end">★★★★★</div>
-                    <p class="text-gray-300 italic">"לא מאמין שזה המחיר. נראה כמו רולקס ב-50 אלף שקל."</p>
-                    <p class="mt-4 font-bold text-sm">דניאל לוי ✅</p>
-                </div>
-                <div class="bg-[#111] p-8 rounded-2xl border border-white/5 text-right" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center gap-1 text-yellow-500 mb-4 justify-end">★★★★★</div>
-                    <p class="text-gray-300 italic">"הזמנתי ביום שני, הגיע ביום רביעי. שירות מדהים."</p>
-                    <p class="mt-4 font-bold text-sm">יונתן קופר ✅</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-black py-16 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 text-right">
-            <div data-aos="fade-up">
-                <h4 class="text-[#d4af37] font-bold uppercase tracking-widest mb-4 text-sm">פרטי קשר ושירות</h4>
-                <div class="space-y-3 text-gray-400 text-sm leading-relaxed">
-                    <p>שירות לקוחות: א'-ה' | 10:00 - 22:00</p>
-                    <p>ליצירת קשר: <span class="text-white font-bold">058-7858531</span></p>
-                </div>
+    <footer class="bg-black py-16 border-t border-white/5 text-right">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h4 class="text-[#d4af37] font-bold uppercase mb-4">פרטי קשר</h4>
+                <p class="text-gray-400 text-sm">שירות לקוחות: א'-ה' | 10:00 - 22:00</p>
+                <p class="text-white font-bold">058-7858531</p>
             </div>
-            <div class="flex flex-col items-center md:items-start justify-center">
-                <div class="inline-flex items-center gap-3 bg-green-500/10 border border-green-500/20 px-6 py-3 rounded-full mb-6">
-                    <span class="text-green-500 text-xl">🔒</span>
-                    <span class="text-green-500 text-sm font-bold uppercase tracking-widest">תשלום מאובטח SSL</span>
-                </div>
+            <div class="flex flex-col items-center md:items-start">
                 <div class="luxury-logo flex flex-col items-center md:items-start leading-none mb-4">
                     <span class="text-2xl font-light tracking-[0.2em]">LUMIÈRE</span>
                     <span class="text-[#d4af37] text-xs font-bold tracking-[0.5em] mt-1 mr-1">PARIS</span>
                 </div>
-                <p class="text-gray-700 text-[9px] tracking-[0.3em] uppercase">© 2026 LUMIÈRE PARIS</p>
+                <p class="text-gray-700 text-[9px]">© 2026 LUMIÈRE PARIS</p>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true, offset: 100 });
+        AOS.init({ duration: 1000, once: true });
         function toggleMenu() { document.getElementById('sideMenu').classList.toggle('hidden-menu'); }
-        function toggleFaq(element) {
-            const item = element.parentElement;
-            item.classList.toggle('active');
-        }
+        function toggleFaq(element) { element.parentElement.classList.toggle('active'); }
         const backToTopBtn = document.getElementById('backToTop');
         window.onscroll = function() {
-            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) { backToTopBtn.classList.add('visible'); } 
-            else { backToTopBtn.classList.remove('visible'); }
+            if (document.documentElement.scrollTop > 400) backToTopBtn.classList.add('visible');
+            else backToTopBtn.classList.remove('visible');
         };
     </script>
 </body>

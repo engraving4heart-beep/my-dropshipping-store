@@ -14,10 +14,10 @@
         .mobile-menu { transition: transform 0.3s ease-in-out; }
         .hidden-menu { transform: translateX(100%); }
         .product-card:hover { border-color: #d4af37; transform: translateY(-5px); transition: all 0.3s ease; }
-        #sales-notification { transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); bottom: -100px; }
-        #sales-notification.show { bottom: 20px; }
+        
         #backToTop { transition: all 0.4s ease; opacity: 0; visibility: hidden; transform: translateY(20px); }
         #backToTop.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        
         @keyframes pulse-red { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
         .pulse-live { animation: pulse-red 2s infinite; }
 
@@ -52,18 +52,16 @@
         </svg>
     </a>
 
-    <div id="sales-notification" class="fixed left-4 z-[300] bg-white text-black p-4 rounded-xl shadow-2xl flex items-center gap-4 border border-gray-200 md:max-w-sm">
-        <div class="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden shrink-0">
-            <img id="pop-img" src="https://placehold.co/100x100/1a1a1a/FFF?text=Watch" class="w-full h-full object-cover">
-        </div>
-        <div class="text-right">
-            <p class="text-xs text-gray-500 font-bold" id="pop-name">מישהו מחיפה</p>
-            <p class="text-[13px] font-black leading-tight">רכש הרגע LUMIÈRE™ Milano</p>
-            <p class="text-[10px] text-green-600 font-bold mt-1 italic">לפני 4 דקות</p>
+    <div class="bg-[#d4af37] text-black py-2 overflow-hidden sticky top-0 z-[110]">
+        <div class="flex justify-around items-center text-[10px] md:text-xs font-black uppercase tracking-widest whitespace-nowrap px-4">
+            <div class="flex items-center gap-2"><span>🚚</span> משלוח אקספרס חינם</div>
+            <div class="hidden md:flex items-center gap-2"><span>💎</span> זכוכית ספיר עמידה</div>
+            <div class="flex items-center gap-2"><span>🛡️</span> 12 חודשי אחריות</div>
+            <div class="hidden md:flex items-center gap-2"><span>💳</span> תשלום מאובטח</div>
         </div>
     </div>
 
-    <header class="sticky top-0 z-[100] bg-black/80 backdrop-blur-md border-b border-white/10">
+    <header class="sticky top-[32px] z-[100] bg-black/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <button class="md:hidden text-2xl" onclick="toggleMenu()">☰</button>
             <div class="luxury-logo flex flex-col items-center leading-none">
@@ -148,54 +146,6 @@
                 <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">LUMIÈRE PARIS™ Tokyo</h3>
                 <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪489.90</div>
             </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="100">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Monaco+Silver" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">LUMIÈRE™ Monaco</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪519.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="200">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=London+Classic" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">LUMIÈRE™ London</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪429.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="300">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Qatar+Red" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Qatar Executive</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪589.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="400">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Swiss+Master" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Master Heritage</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪649.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="100">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Paris+Rose" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Paris Rose Gold</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪499.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="200">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Shadow+Black" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Dark Knight Edition</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪559.90</div>
-            </div>
         </div>
     </section>
 
@@ -236,7 +186,30 @@
         </div>
     </section>
 
-    <section id="faq" class="py-24 bg-[#050505] text-right">
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="luxury-logo text-[#d4af37] text-sm tracking-[0.3em] mb-2">Designed for Excellence</h2>
+                <h3 class="text-3xl md:text-5xl font-black italic uppercase italic tracking-tighter">הסטייל שלך, הזמן שלך</h3>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square overflow-hidden rounded-lg group">
+                    <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 scale-110 group-hover:scale-100">
+                </div>
+                <div class="aspect-square overflow-hidden rounded-lg group">
+                    <img src="https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 scale-110 group-hover:scale-100">
+                </div>
+                <div class="aspect-square overflow-hidden rounded-lg group">
+                    <img src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 scale-110 group-hover:scale-100">
+                </div>
+                <div class="aspect-square overflow-hidden rounded-lg group">
+                    <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 scale-110 group-hover:scale-100">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 bg-[#050505] text-right border-t border-white/5">
         <div class="max-w-3xl mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-black italic uppercase mb-4 tracking-tighter">שאלות נפוצות</h2>
@@ -260,17 +233,7 @@
                         <span class="faq-icon transition-transform text-2xl font-light">+</span>
                     </div>
                     <div class="faq-answer">
-                        ניתן לקבל החזר כספי מלא עד 12 יום מיום קבלת המוצר. ההחזר מותנה בהחזרת השעון באריזתו המקורית, ובתנאי שלא נעשה בו שימוש כלל (לא נחבש על היד).
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up">
-                    <div class="faq-question text-lg font-bold" onclick="toggleFaq(this)">
-                        <span>מאילו חומרים מיוצרים השעונים?</span>
-                        <span class="faq-icon transition-transform text-2xl font-light">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        השעונים שלנו מיוצרים מפלדת אל-חלד 316L (Stainless Steel), זכוכית ספיר קריסטל עמידה לשריטות ומנגנוני קוורץ או אוטומטיים ברמת דיוק גבוהה.
+                        ניתן לקבל החזר כספי מלא עד 12 יום מיום קבלת המוצר. ההחזר מותנה בהחזרת השעון באריזתו המקורית, ובתנאי שלא נעשה בו שימוש כלל.
                     </div>
                 </div>
 
@@ -280,17 +243,7 @@
                         <span class="faq-icon transition-transform text-2xl font-light">+</span>
                     </div>
                     <div class="faq-answer">
-                        זמן המשלוח לכל חלקי הארץ נע בין 15 ל-30 ימי עסקים. המשלוח מתבצע באמצעות חברת שליחים עד לפתח הבית.
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up">
-                    <div class="faq-question text-lg font-bold" onclick="toggleFaq(this)">
-                        <span>האם השעון עמיד במים?</span>
-                        <span class="faq-icon transition-transform text-2xl font-light">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        השעונים שלנו בעלי עמידות למים של 3ATM/5ATM. הם עמידים בפני גשם, שטיפת ידיים ונתזים. לא מומלץ להיכנס איתם לבריכה או למקלחת רותחת.
+                        זמן המשלוח לכל חלקי הארץ נע בין 15 ל-30 ימי עסקים בממוצע. המשלוח מתבצע באמצעות חברת שליחים עד לפתח הבית.
                     </div>
                 </div>
             </div>
@@ -326,13 +279,12 @@
                 <h4 class="text-[#d4af37] font-bold uppercase tracking-widest mb-4 text-sm">פרטי קשר ושירות</h4>
                 <div class="space-y-3 text-gray-400 text-sm leading-relaxed">
                     <p>שירות לקוחות: א'-ה' | 10:00 - 22:00</p>
-                    <p>רחוב ברק, קרית מוצקין (ללא קבלת קהל)</p>
                     <p>ליצירת קשר: <span class="text-white font-bold">058-7858531</span></p>
                 </div>
             </div>
             <div class="flex flex-col items-center md:items-start justify-center">
                 <div class="inline-flex items-center gap-3 bg-green-500/10 border border-green-500/20 px-6 py-3 rounded-full mb-6">
-                    <span class="text-green-500 animate-pulse text-xl">🔒</span>
+                    <span class="text-green-500 text-xl">🔒</span>
                     <span class="text-green-500 text-sm font-bold uppercase tracking-widest">תשלום מאובטח SSL</span>
                 </div>
                 <div class="luxury-logo flex flex-col items-center md:items-start leading-none mb-4">
@@ -360,23 +312,6 @@
             if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) { backToTopBtn.classList.add('visible'); } 
             else { backToTopBtn.classList.remove('visible'); }
         };
-
-        const locations = ["מתל אביב", "מירושלים", "מחיפה", "מאילת", "מראשון לציון"];
-        const products = ["LUMIÈRE™ Milano", "LUMIÈRE™ Dubai", "Doha Special Edition", "LUMIÈRE™ Tokyo"];
-        
-        function showNotification() {
-            const pop = document.getElementById('sales-notification');
-            if(!pop) return;
-            const loc = locations[Math.floor(Math.random() * locations.length)];
-            const prod = products[Math.floor(Math.random() * products.length)];
-            document.getElementById('pop-name').innerText = `מישהו ${loc}`;
-            document.getElementById('pop-name').nextElementSibling.innerText = `רכש הרגע ${prod}`;
-            pop.classList.add('show');
-            setTimeout(() => { pop.classList.remove('show'); }, 5000);
-        }
-        
-        setTimeout(showNotification, 3000);
-        setInterval(showNotification, 15000);
     </script>
 </body>
 </html>

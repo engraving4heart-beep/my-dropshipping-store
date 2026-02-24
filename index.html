@@ -14,17 +14,14 @@
         .mobile-menu { transition: transform 0.3s ease-in-out; }
         .hidden-menu { transform: translateX(100%); }
         .product-card:hover { border-color: #d4af37; transform: translateY(-5px); transition: all 0.3s ease; }
-        
         #backToTop { transition: all 0.4s ease; opacity: 0; visibility: hidden; transform: translateY(20px); }
         #backToTop.visible { opacity: 1; visibility: visible; transform: translateY(0); }
-
         @keyframes whatsapp-pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
         .whatsapp-btn { animation: whatsapp-pulse 2s infinite; }
-
         .faq-item { border-bottom: 1px solid rgba(255,255,255,0.05); }
         .faq-question { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; transition: all 0.3s; }
         .faq-question:hover { color: #d4af37; }
@@ -106,84 +103,19 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up">
                 <div class="absolute top-3 left-3 bg-red-600 text-white text-[9px] font-black px-2 py-1 rounded shadow-lg z-10 animate-pulse">מכירה חמה</div>
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Monaco+Emerald" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
+                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]"><img src="https://placehold.co/600x600/1a1a1a/FFF?text=Monaco+Emerald" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
                 <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">LUMIÈRE Monaco Emerald</h3>
                 <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪459.90</div>
             </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="100">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Saint+Tropez" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">LUMIÈRE Saint-Tropez Gold</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪529.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="200">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Obsidian+Black" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">LUMIÈRE Obsidian Black</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪949.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="300">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Royal+Azure" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">LUMIÈRE Royal Azure</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪489.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Silver+Ghost" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Silver Ghost Edition</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪599.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Carbon+Master" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Carbon Master Pro</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪649.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Executive+II" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">The Executive II</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪720.00</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Midnight+Blue" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Midnight Blue Diver</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪499.90</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Aviation+Gold" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Aviation Gold Edition</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪880.00</div>
-            </div>
-
-            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up">
-                <div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]">
-                    <img src="https://placehold.co/600x600/1a1a1a/FFF?text=Grand+Skeleton" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                </div>
-                <h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Grand Skeleton Tourbillon</h3>
-                <div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪1,100.00</div>
-            </div>
+            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="100"><div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]"><img src="https://placehold.co/600x600/1a1a1a/FFF?text=Saint+Tropez" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">LUMIÈRE Saint-Tropez Gold</h3><div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪529.90</div></div>
+            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="200"><div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]"><img src="https://placehold.co/600x600/1a1a1a/FFF?text=Obsidian+Black" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">LUMIÈRE Obsidian Black</h3><div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪949.90</div></div>
+            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up" data-aos-delay="300"><div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]"><img src="https://placehold.co/600x600/1a1a1a/FFF?text=Royal+Azure" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">LUMIÈRE Royal Azure</h3><div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪489.90</div></div>
+            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up"><div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]"><img src="https://placehold.co/600x600/1a1a1a/FFF?text=Silver+Ghost" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Silver Ghost Edition</h3><div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪599.90</div></div>
+            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up"><div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]"><img src="https://placehold.co/600x600/1a1a1a/FFF?text=Carbon+Master" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Carbon Master Pro</h3><div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪649.90</div></div>
+            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up"><div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]"><img src="https://placehold.co/600x600/1a1a1a/FFF?text=Executive+II" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">The Executive II</h3><div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪720.00</div></div>
+            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up"><div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]"><img src="https://placehold.co/600x600/1a1a1a/FFF?text=Midnight+Blue" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Midnight Blue Diver</h3><div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪499.90</div></div>
+            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up"><div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]"><img src="https://placehold.co/600x600/1a1a1a/FFF?text=Aviation+Gold" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Aviation Gold Edition</h3><div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪880.00</div></div>
+            <div class="product-card bg-[#111] border border-white/5 rounded-2xl p-4 relative group" data-aos="fade-up"><div class="aspect-square mb-6 overflow-hidden rounded-xl bg-[#1a1a1a]"><img src="https://placehold.co/600x600/1a1a1a/FFF?text=Grand+Skeleton" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div><h3 class="text-center font-bold text-sm mb-2 uppercase tracking-tighter">Grand Skeleton Tourbillon</h3><div class="flex justify-center items-center gap-2 font-black text-xl mb-4 text-[#d4af37]">₪1,100.00</div></div>
         </div>
     </section>
 
@@ -203,21 +135,9 @@
                         </tr>
                     </thead>
                     <tbody class="text-sm">
-                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
-                            <td class="p-4 font-bold">חומר המארז</td>
-                            <td class="p-4 text-center text-gray-500 text-xs">פלדת אל-חלד 316L</td>
-                            <td class="p-4 text-center font-bold bg-[#d4af37]/5">פלדת אל-חלד 316L</td>
-                        </tr>
-                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
-                            <td class="p-4 font-bold">סוג הזכוכית</td>
-                            <td class="p-4 text-center text-gray-500 text-xs">ספיר קריסטל</td>
-                            <td class="p-4 text-center font-bold bg-[#d4af37]/5">ספיר קריסטל</td>
-                        </tr>
-                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
-                            <td class="p-4 font-bold text-white">מחיר ממוצע</td>
-                            <td class="p-4 text-center font-bold">₪4,500+</td>
-                            <td class="p-4 text-center font-bold bg-[#d4af37]/20 text-[#d4af37] text-lg italic">₪499</td>
-                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition"><td class="p-4 font-bold">חומר המארז</td><td class="p-4 text-center text-gray-500 text-xs">פלדת אל-חלד 316L</td><td class="p-4 text-center font-bold bg-[#d4af37]/5">פלדת אל-חלד 316L</td></tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition"><td class="p-4 font-bold">סוג הזכוכית</td><td class="p-4 text-center text-gray-500 text-xs">ספיר קריסטל</td><td class="p-4 text-center font-bold bg-[#d4af37]/5">ספיר קריסטל</td></tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition"><td class="p-4 font-bold text-white">מחיר ממוצע</td><td class="p-4 text-center font-bold">₪4,500+</td><td class="p-4 text-center font-bold bg-[#d4af37]/20 text-[#d4af37] text-lg italic">₪499</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -232,8 +152,10 @@
             </div>
             <div class="space-y-2">
                 <div class="faq-item" data-aos="fade-up"><div class="faq-question text-lg font-bold" onclick="toggleFaq(this)"><span>אחריות על המוצר</span><span class="faq-icon text-2xl font-light">+</span></div><div class="faq-answer">אחריות מלאה למשך 12 חודשים על המנגנון.</div></div>
-                <div class="faq-item" data-aos="fade-up"><div class="faq-question text-lg font-bold" onclick="toggleFaq(this)"><span>מדיניות החזר כספי</span><span class="faq-icon text-2xl font-light">+</span></div><div class="faq-answer">החזר כספי מלא עד 12 יום באריזה מקורית.</div></div>
-                <div class="faq-item" data-aos="fade-up"><div class="faq-question text-lg font-bold" onclick="toggleFaq(this)"><span>תוך כמה זמן מגיע המשלוח?</span><span class="faq-icon text-2xl font-light">+</span></div><div class="faq-answer">בין 15 ל-30 ימי עסקים עם שליח עד הבית.</div></div>
+                <div class="faq-item" data-aos="fade-up"><div class="faq-question text-lg font-bold" onclick="toggleFaq(this)"><span>מדיניות החזר כספי</span><span class="faq-icon text-2xl font-light">+</span></div><div class="faq-answer">החזר כספי מלא עד 14 יום מקבלת המוצר, באריזה מקורית.</div></div>
+                <div class="faq-item" data-aos="fade-up"><div class="faq-question text-lg font-bold" onclick="toggleFaq(this)"><span>תוך כמה זמן מגיע המשלוח?</span><span class="faq-icon text-2xl font-light">+</span></div><div class="faq-answer">משלוח אקספרס מגיע תוך 7-14 ימי עסקים לכל הארץ עם שליח עד הבית.</div></div>
+                <div class="faq-item" data-aos="fade-up"><div class="faq-question text-lg font-bold" onclick="toggleFaq(this)"><span>האם השעונים עמידים במים?</span><span class="faq-icon text-2xl font-light">+</span></div><div class="faq-answer">כן, רוב השעונים עמידים עד 50 מטר (5ATM), מתאים לשימוש יומיומי ורחצה.</div></div>
+                <div class="faq-item" data-aos="fade-up"><div class="faq-question text-lg font-bold" onclick="toggleFaq(this)"><span>האם השעון מגיע עם קופסה?</span><span class="faq-icon text-2xl font-light">+</span></div><div class="faq-answer">בוודאי. כל שעון מגיע במארז היוקרה המקורי שלנו הכולל כרית ומטלית ניקוי.</div></div>
             </div>
         </div>
     </section>
@@ -244,10 +166,20 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-[#111] p-8 rounded-2xl border border-white/5 text-right" data-aos="fade-up">
                     <div class="flex items-center gap-1 text-yellow-500 mb-4 justify-end">★★★★★</div>
-                    <p class="text-gray-300 italic">"שעון מטורף. הגיע באריזה יוקרתית עם כל התעודות."</p>
+                    <p class="text-gray-300 italic">"שעון מטורף. הגיע באריזה יוקרתית עם כל התעודות. מרגיש כמו שעון של 5,000 שקל."</p>
                     <p class="mt-4 font-bold text-sm">אריאל בן דוד ✅</p>
                 </div>
+                <div class="bg-[#111] p-8 rounded-2xl border border-white/5 text-right" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-1 text-yellow-500 mb-4 justify-end">★★★★★</div>
+                    <p class="text-gray-300 italic">"הזמנתי את ה-Monaco Emerald. הצבע של הלוח מדהים והמשקל מרגיש איכותי מאוד."</p>
+                    <p class="mt-4 font-bold text-sm">עידן לוי ✅</p>
                 </div>
+                <div class="bg-[#111] p-8 rounded-2xl border border-white/5 text-right" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-1 text-yellow-500 mb-4 justify-end">★★★★★</div>
+                    <p class="text-gray-300 italic">"שירות לקוחות מעולה בוואטסאפ. עזרו לי לבחור את הדגם וקיבלתי אותו תוך 10 ימים."</p>
+                    <p class="mt-4 font-bold text-sm">מאור גבאי ✅</p>
+                </div>
+            </div>
         </div>
     </section>
 
